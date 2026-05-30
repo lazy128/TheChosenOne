@@ -58,7 +58,7 @@ function buildSeatMap(seedBase: number): Movie["seatMap"] {
 function buildShowtimes(basePrice: number, seedBase: number): Movie["showtimes"] {
   const rand = seeded(seedBase);
   const out: Movie["showtimes"] = {};
-  const cinemaIds = ["CGV", "LotteCinima", "BHDStar"];
+  const cinemaIds = ["CGV", "Lotte", "BHD"];
 
   for (const c of cinemaIds) {
     out[c] = {};

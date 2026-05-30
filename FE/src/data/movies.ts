@@ -43,9 +43,9 @@ export type Movie = {
 };
 
 export const CINEMAS: Cinema[] = [
-  { id: "CGV", name: "CGV Vincom Center", address: "72 Le Thanh Ton, District 1, HCMC", distance: "1.2 km" },
-  { id: "LotteCinima", name: "Lotte Cinema Landmark 81", address: "208 Nguyen Huu Canh, Binh Thanh, HCMC", distance: "3.8 km" },
-  { id: "BHDStar", name: "BHD Star Bitexco", address: "2 Hai Trieu, District 1, HCMC", distance: "0.6 km" },
+  { id: "CGV", name: "CGV - Aeon Bình Tân", address: "Tầng 3 Aeon Mall Bình Tân", distance: "1.2 km" },
+  { id: "Lotte", name: "Lotte - Gò Vấp", address: "Tầng 3 Lotte Mart Gò Vấp", distance: "3.8 km" },
+  { id: "BHD", name: "BHD - Bitexco", address: "Tầng 3 Bitexco Quận 1", distance: "0.6 km" },
 ];
 
 const today = new Date();
