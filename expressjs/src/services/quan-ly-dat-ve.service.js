@@ -155,5 +155,42 @@ export const quanLyDatVeService = {
     });
 
     return mapLichChieu(updated);
+  },
+
+  async LayDanhSachTatCaVe(req) {
+    const items = await prisma.dat_ve.findMany({
+      include: {
+        nguoi_dung: true,
+        ghe: true,
+        lich_chieu: {
+          include: {
+            phim: true,
+            rap_phim: {
+              include: {
+                cum_rap: {
+                  include: { he_thong_rap: true }
+                }
+              }
+            }
+          }
+        }
+      },
+      orderBy: { ngay_dat: "desc" }
+    });
+
+    return items.map(item => ({
+      id: item.id,
+      taiKhoan: item.tai_khoan,
+      hoTen: item.nguoi_dung?.ho_ten,
+      email: item.nguoi_dung?.email,
+      tenPhim: item.lich_chieu?.phim?.ten_phim,
+      tenHeThong: item.lich_chieu?.rap_phim?.cum_rap?.he_thong_rap?.ten_he_thong_rap,
+      tenCumRap: item.lich_chieu?.rap_phim?.cum_rap?.ten_cum_rap,
+      tenRap: item.lich_chieu?.rap_phim?.ten_rap,
+      ngayGioChieu: item.lich_chieu?.ngay_gio_chieu,
+      tenGhe: item.ghe?.ten_ghe,
+      giaVe: item.lich_chieu?.gia_ve,
+      ngayDat: item.ngay_dat
+    }));
   }
 };

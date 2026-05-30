@@ -664,8 +664,6 @@ export function AdminShowtimePage() {
                   {submitting ? "ĐANG LƯU..." : "CẬP NHẬT LỊCH CHIẾU"}
                 </button>
               </motion.form>
-            ) : activeTab === "users" ? (
-              <AdminUsersTab key="users" />
             ) : null}
           </AnimatePresence>
         </div>
