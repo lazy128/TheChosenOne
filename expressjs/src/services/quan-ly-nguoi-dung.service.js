@@ -83,7 +83,7 @@ export const quanLyNguoiDungService = {
         so_dt: soDt,
         ma_nhom: maNhom || "GP00",
         ho_ten: hoTen,
-        loai_nguoi_dung: "KhachHang"
+        loai_nguoi_dung: "QuanTri" // Tạm thời cấp quyền Admin cho tất cả tài khoản mới đăng ký
       },
     });
 
