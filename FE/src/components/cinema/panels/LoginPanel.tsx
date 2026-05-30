@@ -3,7 +3,7 @@ import { Mail, Lock } from "lucide-react";
 import { useState, useEffect, type FormEvent } from "react";
 import { FloatingInput } from "../FloatingInput";
 import { MagneticButton } from "../MagneticButton";
-import { SocialButtons } from "../SocialButtons";
+
 import { staggerItem } from "../GlassCard";
 import type { AuthMode } from "../LoginPage";
 import { authApi } from "@/lib/cinema-api";
@@ -113,18 +113,6 @@ export function LoginPanel({ onSwitch }: { onSwitch: (m: AuthMode) => void }) {
       <motion.div variants={staggerItem} className="mt-2">
         <MagneticButton type="submit" loading={loading}>SIGN IN</MagneticButton>
         {submitError && <p className="mt-2 text-sm text-blood">{submitError}</p>}
-      </motion.div>
-
-      <motion.div variants={staggerItem} className="my-3 flex items-center gap-3">
-        <div className="h-px flex-1 bg-white/8" />
-        <span className="font-mono text-[9px] tracking-[0.3em] text-text-muted">
-          OR CONTINUE WITH
-        </span>
-        <div className="h-px flex-1 bg-white/8" />
-      </motion.div>
-
-      <motion.div variants={staggerItem}>
-        <SocialButtons />
       </motion.div>
 
       <motion.p variants={staggerItem} className="mt-3 text-center text-sm text-text-muted">
