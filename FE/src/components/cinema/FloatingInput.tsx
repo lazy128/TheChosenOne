@@ -92,17 +92,7 @@ export function FloatingInput({
         {/* Right icons */}
         <div className="mr-2.5 flex items-center gap-1">
           <AnimatePresence>
-            {valid && !error && (
-              <motion.span
-                initial={{ scale: 0, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0, opacity: 0 }}
-                transition={{ type: "spring", stiffness: 400, damping: 20 }}
-                className="grid h-5 w-5 place-items-center rounded-full bg-green-500/15 text-green-400"
-              >
-                <Check className="h-3 w-3" strokeWidth={3} />
-              </motion.span>
-            )}
+            {/* Removed green checkmark per user request */}
             {error && !focused && (
               <motion.span
                 initial={{ scale: 0, opacity: 0 }}
