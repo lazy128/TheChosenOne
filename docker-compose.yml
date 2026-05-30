@@ -1,0 +1,69 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: cinemax-db
+    restart: unless-stopped
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: 12082005
+      MYSQL_DATABASE: MOVIE_DTB
+    ports:
+      - "3308:3306"
+    volumes:
+      - cinemax_mysql_data:/var/lib/mysql
+      - ./expressjs/assignment.sql:/docker-entrypoint-initdb.d/01-assignment.sql:ro
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-p12082005"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+    networks:
+      - cinemax-network
+
+  api:
+    build:
+      context: ./expressjs
+      dockerfile: Dockerfile
+    container_name: cinemax-api
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      NODE_ENV: development
+      PORT: 5000
+      DATABASE_URL: mysql://root:12082005@db:3306/MOVIE_DTB
+      ACCESS_TOKEN_SECRET: 12345
+      REFRESH_TOKEN_SECRET: 777777
+      ALLOWED_ORIGINS: http://localhost:5173,http://127.0.0.1:5173
+    ports:
+      - "5000:5000"
+    volumes:
+      - cinemax_public_images:/app/public/images
+    networks:
+      - cinemax-network
+
+  web:
+    build:
+      context: ./FE
+      dockerfile: Dockerfile
+    container_name: cinemax-web
+    restart: unless-stopped
+    depends_on:
+      api:
+        condition: service_started
+    environment:
+      VITE_API_BASE_URL: http://localhost:5000/api
+    ports:
+      - "5173:5173"
+    networks:
+      - cinemax-network
+
+networks:
+  cinemax-network:
+    driver: bridge
+
+volumes:
+  cinemax_mysql_data:
+  cinemax_public_images:
