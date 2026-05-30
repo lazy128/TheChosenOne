@@ -180,7 +180,7 @@ export function adaptPhimToMovie(item: Phim, lichChieuData?: LichChieuPhimDetail
     poster: hinhAnh ?? `https://picsum.photos/seed/phim-${seedBase}/400/600`,
     backdrop: source.backdrop ?? hinhAnh ?? `https://picsum.photos/seed/phim-bg-${seedBase}/1600/900`,
     accent: source.accent ?? (item.hot ? "#e50914" : "#ff6b35"),
-    showtimes: realShowtimes ?? buildShowtimes(basePrice, seedBase * 13),
+    showtimes: realShowtimes ?? {},
     seatMap: buildSeatMap(seedBase * 97),
   };
 }
