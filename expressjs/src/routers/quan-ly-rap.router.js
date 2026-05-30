@@ -1,6 +1,7 @@
 import express from "express";
 import { quanLyRapController } from "../controllers/quan-ly-rap.controller.js";
-import { protect, restrictTo } from "../common/middlewares/protect.middleware.js";
+import { protect } from "../common/middlewares/protect.middleware.js";
+import { restrictTo } from "../common/middlewares/restrict-to.middleware.js";
 
 const quanLyRapRouter = express.Router();
 
