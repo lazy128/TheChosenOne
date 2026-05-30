@@ -55,16 +55,15 @@ function MiniCalendar({
   const [viewYear, setViewYear] = useState(today.getFullYear());
   const [viewMonth, setViewMonth] = useState(today.getMonth());
 
-  // Auto-navigate to the month of the first available date
+  // Auto-navigate to the month of the selected date (or first available)
   useEffect(() => {
-    if (availableDates.size > 0) {
-      const sorted = Array.from(availableDates).sort();
-      const first = sorted[0];
-      const [y, m] = first.split("-").map(Number);
+    const targetIso = selectedDate || (availableDates.size > 0 ? Array.from(availableDates).sort()[0] : null);
+    if (targetIso) {
+      const [y, m] = targetIso.split("-").map(Number);
       setViewYear(y);
       setViewMonth(m - 1);
     }
-  }, [availableDates]);
+  }, [availableDates, selectedDate]);
 
   const cells = useMemo(() => buildCalendarGrid(viewYear, viewMonth), [viewYear, viewMonth]);
 
@@ -188,7 +187,17 @@ export function ShowtimesModal() {
   const [activeCinema, setActiveCinema] = useState<string | null>(null);
   const chooseSeatsRef = useRef<HTMLDivElement>(null);
 
-  const cinemaId = cinema ?? activeCinema ?? CINEMAS[0].id;
+  const defaultCinemaId = useMemo(() => {
+    if (!movie) return CINEMAS[0].id;
+    for (const sys of CINEMAS) {
+      if (movie.showtimes[sys.id] && Object.keys(movie.showtimes[sys.id]).length > 0) {
+        return sys.id;
+      }
+    }
+    return CINEMAS[0].id;
+  }, [movie]);
+
+  const cinemaId = cinema ?? activeCinema ?? defaultCinemaId;
 
   // Compute available dates from the movie's actual showtime data for the selected cinema
   const availableDates = useMemo(() => {
