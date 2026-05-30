@@ -22,11 +22,14 @@ export function TrailerModal({ url, onClose }: Props) {
 
   if (!url) return null;
 
-  // Extract youtube ID
+  // Check if it's a direct video file
+  const isDirectVideo = url.match(/\.(mp4|webm|ogg)$/i) !== null;
+
+  // Extract youtube ID with a very robust regex
   let videoId = "";
-  const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})/);
-  if (match && match[1]) {
-    videoId = match[1];
+  const ytMatch = url.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/|youtube\.com\/shorts\/)([^"&?\/\s]{11})/i);
+  if (ytMatch && ytMatch[1]) {
+    videoId = ytMatch[1];
   }
 
   const embedUrl = videoId ? `https://www.youtube.com/embed/${videoId}?autoplay=1` : url;
@@ -61,13 +64,20 @@ export function TrailerModal({ url, onClose }: Props) {
               allowFullScreen
               className="h-full w-full border-none"
             />
+          ) : isDirectVideo ? (
+            <video 
+              src={url} 
+              autoPlay 
+              controls 
+              className="h-full w-full object-contain"
+            />
           ) : (
-            <div className="flex h-full flex-col items-center justify-center text-text-muted gap-4">
-              <p>Không thể nhúng video này trực tiếp.</p>
-              <a href={url} target="_blank" rel="noopener noreferrer" className="text-accent-blood hover:underline">
-                Xem trên trang chủ video
-              </a>
-            </div>
+            <iframe
+              src={url}
+              title="Trailer"
+              allowFullScreen
+              className="h-full w-full border-none bg-white"
+            />
           )}
         </motion.div>
       </motion.div>
