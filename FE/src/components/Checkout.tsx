@@ -6,8 +6,8 @@ import { ArrowLeft, ArrowRight, Check, Download, Share2, Ticket, CreditCard, Plu
 import { useBooking } from "@/context/BookingContext";
 import { useNavigate } from "@tanstack/react-router";
 import { useSound } from "@/hooks/useSound";
-import type { OfferMeta } from "@/data/offers";
-import { formatPromoSuccess, getOfferMetaByCode } from "@/data/offers";
+import { formatPromoSuccess } from "@/data/offers";
+import { quanLyUuDaiApi, type UuDai } from "@/lib/cinema-api";
 import { useLocale } from "@/context/LocaleContext";
 import { CheckoutProgress } from "./checkout/CheckoutProgress";
 import { OrderSummary } from "./checkout/OrderSummary";
@@ -178,8 +178,8 @@ function StepPayment({
   setAppliedOffer,
   onConfirmBooking,
 }: {
-  appliedOffer?: OfferMeta;
-  setAppliedOffer: (o: OfferMeta | undefined) => void;
+  appliedOffer?: UuDai;
+  setAppliedOffer: (o: UuDai | undefined) => void;
   onConfirmBooking: () => Promise<boolean>;
 }) {
   const { state, dispatch } = useBooking();
@@ -270,15 +270,21 @@ function StepPayment({
     return () => window.removeEventListener("cinemax:save-card", onSave);
   }, [saveThisCard, showNewCard, d, savedCards]);
 
-  const applyPromo = () => {
-    const offer = getOfferMetaByCode(promo);
-    if (offer) {
-      setAppliedOffer(offer);
+  const applyPromo = async () => {
+    try {
+      const result = await quanLyUuDaiApi.apDungUuDai(promo);
+      if (result.statusCode !== 200 || !result.data) {
+        setAppliedOffer(undefined);
+        setPromoError(result.message || t("checkout.promoInvalid"));
+        return;
+      }
+      
+      setAppliedOffer(result.data);
       setPromoError("");
       confetti({ particleCount: 60, spread: 60, origin: { y: 0.7 }, colors: ["#e50914", "#f5c518", "#ffffff"] });
-    } else {
+    } catch (err) {
       setAppliedOffer(undefined);
-      setPromoError(t("checkout.promoInvalid"));
+      setPromoError("Đã xảy ra lỗi khi áp dụng mã giảm giá.");
     }
   };
 
@@ -286,7 +292,7 @@ function StepPayment({
     ? calcBookingSubtotalUsd(state.selectedMovie, state.selectedShowtime, state.selectedSeats)
     : 0;
   const totalUsd = appliedOffer
-    ? applyDiscount(subtotalUsd, appliedOffer.discountPercent).total
+    ? applyDiscount(subtotalUsd, appliedOffer.phan_tram_giam).total
     : subtotalUsd;
 
   return (
@@ -503,7 +509,7 @@ function StepPayment({
         </div>
         {appliedOffer && (
           <div className="text-xs text-emerald-400">
-            {formatPromoSuccess(appliedOffer.code, appliedOffer.discountLabel, t)}
+            {formatPromoSuccess(appliedOffer.ma_giam_gia, `-${appliedOffer.phan_tram_giam}%`, t)}
           </div>
         )}
         {promoError && <div className="text-xs text-accent-blood">{promoError}</div>}
@@ -538,6 +544,7 @@ function QRPattern() {
 // ─── Step 3: Confirmation ───
 function StepConfirmation() {
   const { state, dispatch } = useBooking();
+  const navigate = useNavigate();
   const { t } = useLocale();
   const m = state.selectedMovie!;
   const showtime = state.selectedShowtime!;
@@ -653,7 +660,7 @@ export function Checkout() {
   const { chime } = useSound();
   const step = state.checkoutStep;
   const confirmed = !!state.bookingRef && step === 3;
-  const [appliedOffer, setAppliedOffer] = useState<OfferMeta | undefined>();
+  const [appliedOffer, setAppliedOffer] = useState<UuDai | undefined>();
 
   const movie = state.selectedMovie;
   const showtime = state.selectedShowtime;
@@ -724,6 +731,15 @@ export function Checkout() {
         tongTien,
         noiDungCk: `CINEMAX ${bookingRef}`,
       });
+      
+      // Save the used offer via API instead of localstorage
+      if (appliedOffer) {
+        try {
+          await quanLyUuDaiApi.luuLichSuUuDai(appliedOffer.ma_uu_dai);
+        } catch(e) {
+          console.warn("Could not save offer history");
+        }
+      }
     } catch (err) {
       const message = err instanceof Error ? err.message : "Đặt vé hoặc thanh toán thất bại";
       dispatch({ type: "BOOKING_ERROR", message });

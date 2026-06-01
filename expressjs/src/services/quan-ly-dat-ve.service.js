@@ -49,17 +49,24 @@ export const quanLyDatVeService = {
       if (veDaDat) throw new BadRequestException(`Ghế ${maGhe} đã được đặt`);
     }
 
-    await prisma.$transaction(
-      danhSachVe.map((ve) =>
-        prisma.dat_ve.create({
-          data: {
-            tai_khoan: req.user.tai_khoan,
-            ma_lich_chieu: maLichChieu,
-            ma_ghe: Number(ve.maGhe),
-          },
-        }),
-      ),
-    );
+    try {
+      await prisma.$transaction(
+        danhSachVe.map((ve) =>
+          prisma.dat_ve.create({
+            data: {
+              tai_khoan: req.user.tai_khoan,
+              ma_lich_chieu: maLichChieu,
+              ma_ghe: Number(ve.maGhe),
+            },
+          }),
+        ),
+      );
+    } catch (err) {
+      if (err?.code === "P2002") {
+        throw new BadRequestException("Một hoặc nhiều ghế vừa được người khác đặt. Vui lòng chọn lại ghế.");
+      }
+      throw err;
+    }
 
     return true;
   },

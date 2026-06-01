@@ -162,7 +162,10 @@ function Inner() {
 
 export function CinemaxApp() {
   const [loaded, setLoaded] = useState(() => {
-    return sessionStorage.getItem("cinemax_loaded") === "true";
+    if (typeof window !== "undefined") {
+      return sessionStorage.getItem("cinemax_loaded") === "true";
+    }
+    return false;
   });
 
   const handleDone = () => {

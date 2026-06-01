@@ -4,6 +4,7 @@ import quanLyNguoiDungRouter from "./quan-ly-nguoi-dung.router.js"
 import quanLyPhimRouter from "./quan-ly-phim.router.js"
 import quanLyRapRouter from "./quan-ly-rap.router.js"
 import quanLyDatVeRouter from "./quan-ly-dat-ve.router.js"
+import quanLyUuDaiRouter from "./quan-ly-uu-dai.router.js"
 
 const rootRouter = express.Router()
 
@@ -12,5 +13,6 @@ rootRouter.use("/QuanLyNguoiDung", quanLyNguoiDungRouter)
 rootRouter.use("/QuanLyPhim", quanLyPhimRouter)
 rootRouter.use("/QuanLyRap", quanLyRapRouter)
 rootRouter.use("/QuanLyDatVe", quanLyDatVeRouter)
+rootRouter.use("/QuanLyUuDai", quanLyUuDaiRouter)
 
 export default rootRouter

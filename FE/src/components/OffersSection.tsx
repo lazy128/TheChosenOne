@@ -1,5 +1,7 @@
 import { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useQuery } from "@tanstack/react-query";
+import { quanLyUuDaiApi, type UuDai } from "@/lib/cinema-api";
 import {
   Ticket,
   GraduationCap,
@@ -76,7 +78,8 @@ function OfferCard({
   validLabel: string;
   onCopy: () => void;
 }) {
-  const Icon = ICONS[offer.id] ?? Ticket;
+  // @ts-ignore - map dynamic icon ID back to component, fallback to Ticket
+  const Icon = ICONS[(offer as any).iconId] ?? ICONS[offer.id] ?? Ticket;
   const accent = ACCENT_STYLES[offer.accent];
   const featured = offer.featured;
 
@@ -163,7 +166,39 @@ export function OffersSection() {
   const [category, setCategory] = useState<OfferCategory>("all");
   const [copiedId, setCopiedId] = useState<string | null>(null);
 
-  const offers = useMemo(() => localizeOffers(messages.offers.items), [messages]);
+  const { data: apiOffers } = useQuery({
+    queryKey: ["offers"],
+    queryFn: quanLyUuDaiApi.layDanhSachUuDai,
+  });
+
+  const offers = useMemo(() => {
+    if (!apiOffers) return [];
+    
+    // Convert API UuDai to LocalizedOffer format expected by the UI
+    const mapped = apiOffers.map(o => {
+      return {
+        id: o.ma_uu_dai.toString(),
+        category: o.loai_uu_dai as OfferCategory,
+        title: o.tieu_de,
+        tagline: o.mo_ta?.split('\n')[0] || "",
+        description: o.mo_ta || "",
+        discountPercent: o.phan_tram_giam,
+        discountLabel: `-${o.phan_tram_giam}%`,
+        code: o.ma_giam_gia,
+        validUntil: new Date(o.ngay_het_han).toLocaleDateString("vi-VN"),
+        terms: ["Áp dụng online", "Không cộng dồn"],
+        accent: (o.accent || "blood") as OfferAccent,
+        iconId: o.icon || "ticket",
+        featured: o.phan_tram_giam >= 30, // example logic
+      } as LocalizedOffer & { iconId: string };
+    });
+
+    if (typeof window !== "undefined") {
+      const usedOffers = JSON.parse(localStorage.getItem("cinemax_used_offers") || "[]");
+      return mapped.filter(o => !usedOffers.includes(o.code));
+    }
+    return mapped;
+  }, [apiOffers]);
 
   const filtered = useMemo(() => {
     if (category === "all") return offers;

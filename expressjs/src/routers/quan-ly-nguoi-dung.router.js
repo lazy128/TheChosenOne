@@ -2,12 +2,14 @@ import express from "express";
 import { protect } from "../common/middlewares/protect.middleware.js";
 import { restrictTo } from "../common/middlewares/restrict-to.middleware.js";
 import { quanLyNguoiDungController } from "../controllers/quan-ly-nguoi-dung.controller.js";
+import { validateBody } from "../common/middlewares/validate.middleware.js";
+import { DangNhapSchema, DangKySchema } from "../schemas/auth.schema.js";
 
 const quanLyNguoiDungRouter = express.Router();
 
 quanLyNguoiDungRouter.get("/LayDanhSachLoaiNguoiDung", quanLyNguoiDungController.LayDanhSachLoaiNguoiDung);
-quanLyNguoiDungRouter.post("/DangNhap", quanLyNguoiDungController.DangNhap);
-quanLyNguoiDungRouter.post("/DangKy", quanLyNguoiDungController.DangKy);
+quanLyNguoiDungRouter.post("/DangNhap", validateBody(DangNhapSchema), quanLyNguoiDungController.DangNhap);
+quanLyNguoiDungRouter.post("/DangKy", validateBody(DangKySchema), quanLyNguoiDungController.DangKy);
 quanLyNguoiDungRouter.get("/LayDanhSachNguoiDung", quanLyNguoiDungController.LayDanhSachNguoiDung);
 quanLyNguoiDungRouter.get("/LayDanhSachNguoiDungPhanTrang", quanLyNguoiDungController.LayDanhSachNguoiDungPhanTrang);
 quanLyNguoiDungRouter.get("/TimKiemNguoiDung", quanLyNguoiDungController.TimKiemNguoiDung);

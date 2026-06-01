@@ -2,9 +2,10 @@ import { api, type ApiEnvelope } from "./api-client";
 
 export type NguoiDung = {
   taiKhoan: string;
-  matKhau: string;
+  matKhau?: string;
   email: string;
   soDt: string;
+  soDT?: string;
   maNhom: string;
   maLoaiNguoiDung: string;
   hoTen: string;
@@ -362,4 +363,57 @@ export const quanLyDatVeApi = {
     const { data } = await api.get<ApiEnvelope<AdminTicket[]>>("/QuanLyDatVe/LayDanhSachTatCaVe");
     return data.data;
   },
+};
+
+// ─── Quản lý Ưu Đãi ───
+
+export type UuDai = {
+  ma_uu_dai: number;
+  tieu_de: string;
+  ma_giam_gia: string;
+  phan_tram_giam: number;
+  mo_ta: string | null;
+  loai_uu_dai: string;
+  icon: string;
+  accent: string;
+  ngay_het_han: string;
+  is_deleted: boolean;
+  created_at: string;
+};
+
+export const quanLyUuDaiApi = {
+  async layDanhSachUuDai() {
+    const { data } = await api.get<ApiEnvelope<UuDai[]>>("/QuanLyUuDai/LayDanhSachUuDai");
+    return data.data;
+  },
+  
+  async layTatCaUuDai() {
+    const { data } = await api.get<ApiEnvelope<UuDai[]>>("/QuanLyUuDai/LayTatCaUuDai");
+    return data.data;
+  },
+
+  async themUuDai(payload: Partial<UuDai>) {
+    const { data } = await api.post<ApiEnvelope<UuDai>>("/QuanLyUuDai/ThemUuDai", payload);
+    return data.data;
+  },
+
+  async capNhatUuDai(payload: Partial<UuDai>) {
+    const { data } = await api.post<ApiEnvelope<UuDai>>("/QuanLyUuDai/CapNhatUuDai", payload);
+    return data.data;
+  },
+
+  async xoaUuDai(ma_uu_dai: number) {
+    const { data } = await api.delete<ApiEnvelope<any>>("/QuanLyUuDai/XoaUuDai", { params: { MaUuDai: ma_uu_dai } });
+    return data.data;
+  },
+
+  async apDungUuDai(ma_giam_gia: string) {
+    const { data } = await api.post<ApiEnvelope<UuDai>>("/QuanLyUuDai/ApDungUuDai", { ma_giam_gia });
+    return data; // Return full envelope to check statusCode
+  },
+
+  async luuLichSuUuDai(ma_uu_dai: number) {
+    const { data } = await api.post<ApiEnvelope<any>>("/QuanLyUuDai/LuuLichSuUuDai", { ma_uu_dai });
+    return data.data;
+  }
 };

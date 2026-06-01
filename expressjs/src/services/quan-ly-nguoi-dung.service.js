@@ -6,7 +6,6 @@ import { BadRequestException, NotfoundException } from "../common/helpers/except
 function mapNguoiDung(user) {
   return {
     taiKhoan: user.tai_khoan,
-    matKhau: user.mat_khau,
     email: user.email,
     soDt: user.so_dt,
     maNhom: user.ma_nhom,

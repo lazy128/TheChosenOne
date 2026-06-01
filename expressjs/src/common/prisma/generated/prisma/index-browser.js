@@ -210,6 +210,27 @@ exports.Prisma.Rap_phimScalarFieldEnum = {
   ma_cum_rap: 'ma_cum_rap'
 };
 
+exports.Prisma.Uu_daiScalarFieldEnum = {
+  ma_uu_dai: 'ma_uu_dai',
+  tieu_de: 'tieu_de',
+  ma_giam_gia: 'ma_giam_gia',
+  phan_tram_giam: 'phan_tram_giam',
+  mo_ta: 'mo_ta',
+  loai_uu_dai: 'loai_uu_dai',
+  icon: 'icon',
+  accent: 'accent',
+  ngay_het_han: 'ngay_het_han',
+  is_deleted: 'is_deleted',
+  created_at: 'created_at'
+};
+
+exports.Prisma.Lich_su_uu_daiScalarFieldEnum = {
+  id: 'id',
+  tai_khoan: 'tai_khoan',
+  ma_uu_dai: 'ma_uu_dai',
+  ngay_su_dung: 'ngay_su_dung'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -277,6 +298,19 @@ exports.Prisma.rap_phimOrderByRelevanceFieldEnum = {
   ma_cum_rap: 'ma_cum_rap'
 };
 
+exports.Prisma.uu_daiOrderByRelevanceFieldEnum = {
+  tieu_de: 'tieu_de',
+  ma_giam_gia: 'ma_giam_gia',
+  mo_ta: 'mo_ta',
+  loai_uu_dai: 'loai_uu_dai',
+  icon: 'icon',
+  accent: 'accent'
+};
+
+exports.Prisma.lich_su_uu_daiOrderByRelevanceFieldEnum = {
+  tai_khoan: 'tai_khoan'
+};
+
 
 exports.Prisma.ModelName = {
   banner: 'banner',
@@ -288,7 +322,9 @@ exports.Prisma.ModelName = {
   lich_chieu: 'lich_chieu',
   nguoi_dung: 'nguoi_dung',
   phim: 'phim',
-  rap_phim: 'rap_phim'
+  rap_phim: 'rap_phim',
+  uu_dai: 'uu_dai',
+  lich_su_uu_dai: 'lich_su_uu_dai'
 };
 
 /**

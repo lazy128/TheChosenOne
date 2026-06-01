@@ -3,6 +3,19 @@ import { useLocale } from "@/context/LocaleContext";
 import { useFormatMoney } from "@/hooks/useFormatMoney";
 import { applyDiscount } from "@/lib/booking-total";
 
+type AppliedOffer = OfferMeta | {
+  ma_giam_gia: string;
+  phan_tram_giam: number;
+};
+
+function getDiscountPercent(offer: AppliedOffer) {
+  return "discountPercent" in offer ? offer.discountPercent : offer.phan_tram_giam;
+}
+
+function getOfferCode(offer: AppliedOffer) {
+  return "code" in offer ? offer.code : offer.ma_giam_gia;
+}
+
 export function OrderSummary({
   movieTitle,
   showtimeLabel,
@@ -15,13 +28,13 @@ export function OrderSummary({
   showtimeLabel: string;
   seats: string[];
   subtotalUsd: number;
-  appliedOffer?: OfferMeta;
+  appliedOffer?: AppliedOffer;
   compact?: boolean;
 }) {
   const { t } = useLocale();
   const { format } = useFormatMoney();
   const { discount, total } = appliedOffer
-    ? applyDiscount(subtotalUsd, appliedOffer.discountPercent)
+    ? applyDiscount(subtotalUsd, getDiscountPercent(appliedOffer))
     : { discount: 0, total: subtotalUsd };
 
   return (
@@ -52,7 +65,7 @@ export function OrderSummary({
           {appliedOffer && discount > 0 && (
             <div className="mt-1 flex justify-between gap-4 text-emerald-400">
               <dt>
-                {t("checkout.discount")} ({appliedOffer.code})
+                {t("checkout.discount")} ({getOfferCode(appliedOffer)})
               </dt>
               <dd className="font-display">−{format(discount)}</dd>
             </div>

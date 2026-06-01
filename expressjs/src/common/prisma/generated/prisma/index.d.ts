@@ -63,6 +63,16 @@ export type phim = $Result.DefaultSelection<Prisma.$phimPayload>
  * 
  */
 export type rap_phim = $Result.DefaultSelection<Prisma.$rap_phimPayload>
+/**
+ * Model uu_dai
+ * 
+ */
+export type uu_dai = $Result.DefaultSelection<Prisma.$uu_daiPayload>
+/**
+ * Model lich_su_uu_dai
+ * 
+ */
+export type lich_su_uu_dai = $Result.DefaultSelection<Prisma.$lich_su_uu_daiPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -280,6 +290,26 @@ export class PrismaClient<
     * ```
     */
   get rap_phim(): Prisma.rap_phimDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.uu_dai`: Exposes CRUD operations for the **uu_dai** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Uu_dais
+    * const uu_dais = await prisma.uu_dai.findMany()
+    * ```
+    */
+  get uu_dai(): Prisma.uu_daiDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.lich_su_uu_dai`: Exposes CRUD operations for the **lich_su_uu_dai** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Lich_su_uu_dais
+    * const lich_su_uu_dais = await prisma.lich_su_uu_dai.findMany()
+    * ```
+    */
+  get lich_su_uu_dai(): Prisma.lich_su_uu_daiDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -723,7 +753,9 @@ export namespace Prisma {
     lich_chieu: 'lich_chieu',
     nguoi_dung: 'nguoi_dung',
     phim: 'phim',
-    rap_phim: 'rap_phim'
+    rap_phim: 'rap_phim',
+    uu_dai: 'uu_dai',
+    lich_su_uu_dai: 'lich_su_uu_dai'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -739,7 +771,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "banner" | "cum_rap" | "dat_ve" | "ghe" | "giao_dich" | "he_thong_rap" | "lich_chieu" | "nguoi_dung" | "phim" | "rap_phim"
+      modelProps: "banner" | "cum_rap" | "dat_ve" | "ghe" | "giao_dich" | "he_thong_rap" | "lich_chieu" | "nguoi_dung" | "phim" | "rap_phim" | "uu_dai" | "lich_su_uu_dai"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1403,6 +1435,138 @@ export namespace Prisma {
           }
         }
       }
+      uu_dai: {
+        payload: Prisma.$uu_daiPayload<ExtArgs>
+        fields: Prisma.uu_daiFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.uu_daiFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$uu_daiPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.uu_daiFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$uu_daiPayload>
+          }
+          findFirst: {
+            args: Prisma.uu_daiFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$uu_daiPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.uu_daiFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$uu_daiPayload>
+          }
+          findMany: {
+            args: Prisma.uu_daiFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$uu_daiPayload>[]
+          }
+          create: {
+            args: Prisma.uu_daiCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$uu_daiPayload>
+          }
+          createMany: {
+            args: Prisma.uu_daiCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.uu_daiDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$uu_daiPayload>
+          }
+          update: {
+            args: Prisma.uu_daiUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$uu_daiPayload>
+          }
+          deleteMany: {
+            args: Prisma.uu_daiDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.uu_daiUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.uu_daiUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$uu_daiPayload>
+          }
+          aggregate: {
+            args: Prisma.Uu_daiAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateUu_dai>
+          }
+          groupBy: {
+            args: Prisma.uu_daiGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Uu_daiGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.uu_daiCountArgs<ExtArgs>
+            result: $Utils.Optional<Uu_daiCountAggregateOutputType> | number
+          }
+        }
+      }
+      lich_su_uu_dai: {
+        payload: Prisma.$lich_su_uu_daiPayload<ExtArgs>
+        fields: Prisma.lich_su_uu_daiFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.lich_su_uu_daiFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$lich_su_uu_daiPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.lich_su_uu_daiFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$lich_su_uu_daiPayload>
+          }
+          findFirst: {
+            args: Prisma.lich_su_uu_daiFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$lich_su_uu_daiPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.lich_su_uu_daiFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$lich_su_uu_daiPayload>
+          }
+          findMany: {
+            args: Prisma.lich_su_uu_daiFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$lich_su_uu_daiPayload>[]
+          }
+          create: {
+            args: Prisma.lich_su_uu_daiCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$lich_su_uu_daiPayload>
+          }
+          createMany: {
+            args: Prisma.lich_su_uu_daiCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.lich_su_uu_daiDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$lich_su_uu_daiPayload>
+          }
+          update: {
+            args: Prisma.lich_su_uu_daiUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$lich_su_uu_daiPayload>
+          }
+          deleteMany: {
+            args: Prisma.lich_su_uu_daiDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.lich_su_uu_daiUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.lich_su_uu_daiUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$lich_su_uu_daiPayload>
+          }
+          aggregate: {
+            args: Prisma.Lich_su_uu_daiAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateLich_su_uu_dai>
+          }
+          groupBy: {
+            args: Prisma.lich_su_uu_daiGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Lich_su_uu_daiGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.lich_su_uu_daiCountArgs<ExtArgs>
+            result: $Utils.Optional<Lich_su_uu_daiCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1521,6 +1685,8 @@ export namespace Prisma {
     nguoi_dung?: nguoi_dungOmit
     phim?: phimOmit
     rap_phim?: rap_phimOmit
+    uu_dai?: uu_daiOmit
+    lich_su_uu_dai?: lich_su_uu_daiOmit
   }
 
   /* Types for Logging */
@@ -1726,10 +1892,12 @@ export namespace Prisma {
 
   export type Nguoi_dungCountOutputType = {
     dat_ve: number
+    lich_su_uu_dai: number
   }
 
   export type Nguoi_dungCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     dat_ve?: boolean | Nguoi_dungCountOutputTypeCountDat_veArgs
+    lich_su_uu_dai?: boolean | Nguoi_dungCountOutputTypeCountLich_su_uu_daiArgs
   }
 
   // Custom InputTypes
@@ -1748,6 +1916,13 @@ export namespace Prisma {
    */
   export type Nguoi_dungCountOutputTypeCountDat_veArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: dat_veWhereInput
+  }
+
+  /**
+   * Nguoi_dungCountOutputType without action
+   */
+  export type Nguoi_dungCountOutputTypeCountLich_su_uu_daiArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: lich_su_uu_daiWhereInput
   }
 
 
@@ -1828,6 +2003,37 @@ export namespace Prisma {
    */
   export type Rap_phimCountOutputTypeCountLich_chieuArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: lich_chieuWhereInput
+  }
+
+
+  /**
+   * Count Type Uu_daiCountOutputType
+   */
+
+  export type Uu_daiCountOutputType = {
+    lich_su_uu_dai: number
+  }
+
+  export type Uu_daiCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    lich_su_uu_dai?: boolean | Uu_daiCountOutputTypeCountLich_su_uu_daiArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * Uu_daiCountOutputType without action
+   */
+  export type Uu_daiCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Uu_daiCountOutputType
+     */
+    select?: Uu_daiCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * Uu_daiCountOutputType without action
+   */
+  export type Uu_daiCountOutputTypeCountLich_su_uu_daiArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: lich_su_uu_daiWhereInput
   }
 
 
@@ -8767,6 +8973,7 @@ export namespace Prisma {
     created_at?: boolean
     updated_at?: boolean
     dat_ve?: boolean | nguoi_dung$dat_veArgs<ExtArgs>
+    lich_su_uu_dai?: boolean | nguoi_dung$lich_su_uu_daiArgs<ExtArgs>
     _count?: boolean | Nguoi_dungCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["nguoi_dung"]>
 
@@ -8787,6 +8994,7 @@ export namespace Prisma {
   export type nguoi_dungOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"tai_khoan" | "ho_ten" | "email" | "so_dt" | "mat_khau" | "loai_nguoi_dung" | "ma_nhom" | "created_at" | "updated_at", ExtArgs["result"]["nguoi_dung"]>
   export type nguoi_dungInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     dat_ve?: boolean | nguoi_dung$dat_veArgs<ExtArgs>
+    lich_su_uu_dai?: boolean | nguoi_dung$lich_su_uu_daiArgs<ExtArgs>
     _count?: boolean | Nguoi_dungCountOutputTypeDefaultArgs<ExtArgs>
   }
 
@@ -8794,6 +9002,7 @@ export namespace Prisma {
     name: "nguoi_dung"
     objects: {
       dat_ve: Prisma.$dat_vePayload<ExtArgs>[]
+      lich_su_uu_dai: Prisma.$lich_su_uu_daiPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       tai_khoan: string
@@ -9146,6 +9355,7 @@ export namespace Prisma {
   export interface Prisma__nguoi_dungClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     dat_ve<T extends nguoi_dung$dat_veArgs<ExtArgs> = {}>(args?: Subset<T, nguoi_dung$dat_veArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$dat_vePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    lich_su_uu_dai<T extends nguoi_dung$lich_su_uu_daiArgs<ExtArgs> = {}>(args?: Subset<T, nguoi_dung$lich_su_uu_daiArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$lich_su_uu_daiPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -9548,6 +9758,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: Dat_veScalarFieldEnum | Dat_veScalarFieldEnum[]
+  }
+
+  /**
+   * nguoi_dung.lich_su_uu_dai
+   */
+  export type nguoi_dung$lich_su_uu_daiArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the lich_su_uu_dai
+     */
+    select?: lich_su_uu_daiSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the lich_su_uu_dai
+     */
+    omit?: lich_su_uu_daiOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: lich_su_uu_daiInclude<ExtArgs> | null
+    where?: lich_su_uu_daiWhereInput
+    orderBy?: lich_su_uu_daiOrderByWithRelationInput | lich_su_uu_daiOrderByWithRelationInput[]
+    cursor?: lich_su_uu_daiWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Lich_su_uu_daiScalarFieldEnum | Lich_su_uu_daiScalarFieldEnum[]
   }
 
   /**
@@ -11733,6 +11967,2025 @@ export namespace Prisma {
 
 
   /**
+   * Model uu_dai
+   */
+
+  export type AggregateUu_dai = {
+    _count: Uu_daiCountAggregateOutputType | null
+    _avg: Uu_daiAvgAggregateOutputType | null
+    _sum: Uu_daiSumAggregateOutputType | null
+    _min: Uu_daiMinAggregateOutputType | null
+    _max: Uu_daiMaxAggregateOutputType | null
+  }
+
+  export type Uu_daiAvgAggregateOutputType = {
+    ma_uu_dai: number | null
+    phan_tram_giam: number | null
+  }
+
+  export type Uu_daiSumAggregateOutputType = {
+    ma_uu_dai: number | null
+    phan_tram_giam: number | null
+  }
+
+  export type Uu_daiMinAggregateOutputType = {
+    ma_uu_dai: number | null
+    tieu_de: string | null
+    ma_giam_gia: string | null
+    phan_tram_giam: number | null
+    mo_ta: string | null
+    loai_uu_dai: string | null
+    icon: string | null
+    accent: string | null
+    ngay_het_han: Date | null
+    is_deleted: boolean | null
+    created_at: Date | null
+  }
+
+  export type Uu_daiMaxAggregateOutputType = {
+    ma_uu_dai: number | null
+    tieu_de: string | null
+    ma_giam_gia: string | null
+    phan_tram_giam: number | null
+    mo_ta: string | null
+    loai_uu_dai: string | null
+    icon: string | null
+    accent: string | null
+    ngay_het_han: Date | null
+    is_deleted: boolean | null
+    created_at: Date | null
+  }
+
+  export type Uu_daiCountAggregateOutputType = {
+    ma_uu_dai: number
+    tieu_de: number
+    ma_giam_gia: number
+    phan_tram_giam: number
+    mo_ta: number
+    loai_uu_dai: number
+    icon: number
+    accent: number
+    ngay_het_han: number
+    is_deleted: number
+    created_at: number
+    _all: number
+  }
+
+
+  export type Uu_daiAvgAggregateInputType = {
+    ma_uu_dai?: true
+    phan_tram_giam?: true
+  }
+
+  export type Uu_daiSumAggregateInputType = {
+    ma_uu_dai?: true
+    phan_tram_giam?: true
+  }
+
+  export type Uu_daiMinAggregateInputType = {
+    ma_uu_dai?: true
+    tieu_de?: true
+    ma_giam_gia?: true
+    phan_tram_giam?: true
+    mo_ta?: true
+    loai_uu_dai?: true
+    icon?: true
+    accent?: true
+    ngay_het_han?: true
+    is_deleted?: true
+    created_at?: true
+  }
+
+  export type Uu_daiMaxAggregateInputType = {
+    ma_uu_dai?: true
+    tieu_de?: true
+    ma_giam_gia?: true
+    phan_tram_giam?: true
+    mo_ta?: true
+    loai_uu_dai?: true
+    icon?: true
+    accent?: true
+    ngay_het_han?: true
+    is_deleted?: true
+    created_at?: true
+  }
+
+  export type Uu_daiCountAggregateInputType = {
+    ma_uu_dai?: true
+    tieu_de?: true
+    ma_giam_gia?: true
+    phan_tram_giam?: true
+    mo_ta?: true
+    loai_uu_dai?: true
+    icon?: true
+    accent?: true
+    ngay_het_han?: true
+    is_deleted?: true
+    created_at?: true
+    _all?: true
+  }
+
+  export type Uu_daiAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which uu_dai to aggregate.
+     */
+    where?: uu_daiWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of uu_dais to fetch.
+     */
+    orderBy?: uu_daiOrderByWithRelationInput | uu_daiOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: uu_daiWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` uu_dais from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` uu_dais.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned uu_dais
+    **/
+    _count?: true | Uu_daiCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Uu_daiAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Uu_daiSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Uu_daiMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Uu_daiMaxAggregateInputType
+  }
+
+  export type GetUu_daiAggregateType<T extends Uu_daiAggregateArgs> = {
+        [P in keyof T & keyof AggregateUu_dai]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateUu_dai[P]>
+      : GetScalarType<T[P], AggregateUu_dai[P]>
+  }
+
+
+
+
+  export type uu_daiGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: uu_daiWhereInput
+    orderBy?: uu_daiOrderByWithAggregationInput | uu_daiOrderByWithAggregationInput[]
+    by: Uu_daiScalarFieldEnum[] | Uu_daiScalarFieldEnum
+    having?: uu_daiScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Uu_daiCountAggregateInputType | true
+    _avg?: Uu_daiAvgAggregateInputType
+    _sum?: Uu_daiSumAggregateInputType
+    _min?: Uu_daiMinAggregateInputType
+    _max?: Uu_daiMaxAggregateInputType
+  }
+
+  export type Uu_daiGroupByOutputType = {
+    ma_uu_dai: number
+    tieu_de: string
+    ma_giam_gia: string
+    phan_tram_giam: number
+    mo_ta: string | null
+    loai_uu_dai: string
+    icon: string
+    accent: string
+    ngay_het_han: Date
+    is_deleted: boolean
+    created_at: Date
+    _count: Uu_daiCountAggregateOutputType | null
+    _avg: Uu_daiAvgAggregateOutputType | null
+    _sum: Uu_daiSumAggregateOutputType | null
+    _min: Uu_daiMinAggregateOutputType | null
+    _max: Uu_daiMaxAggregateOutputType | null
+  }
+
+  type GetUu_daiGroupByPayload<T extends uu_daiGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Uu_daiGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Uu_daiGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Uu_daiGroupByOutputType[P]>
+            : GetScalarType<T[P], Uu_daiGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type uu_daiSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    ma_uu_dai?: boolean
+    tieu_de?: boolean
+    ma_giam_gia?: boolean
+    phan_tram_giam?: boolean
+    mo_ta?: boolean
+    loai_uu_dai?: boolean
+    icon?: boolean
+    accent?: boolean
+    ngay_het_han?: boolean
+    is_deleted?: boolean
+    created_at?: boolean
+    lich_su_uu_dai?: boolean | uu_dai$lich_su_uu_daiArgs<ExtArgs>
+    _count?: boolean | Uu_daiCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["uu_dai"]>
+
+
+
+  export type uu_daiSelectScalar = {
+    ma_uu_dai?: boolean
+    tieu_de?: boolean
+    ma_giam_gia?: boolean
+    phan_tram_giam?: boolean
+    mo_ta?: boolean
+    loai_uu_dai?: boolean
+    icon?: boolean
+    accent?: boolean
+    ngay_het_han?: boolean
+    is_deleted?: boolean
+    created_at?: boolean
+  }
+
+  export type uu_daiOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"ma_uu_dai" | "tieu_de" | "ma_giam_gia" | "phan_tram_giam" | "mo_ta" | "loai_uu_dai" | "icon" | "accent" | "ngay_het_han" | "is_deleted" | "created_at", ExtArgs["result"]["uu_dai"]>
+  export type uu_daiInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    lich_su_uu_dai?: boolean | uu_dai$lich_su_uu_daiArgs<ExtArgs>
+    _count?: boolean | Uu_daiCountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+  export type $uu_daiPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "uu_dai"
+    objects: {
+      lich_su_uu_dai: Prisma.$lich_su_uu_daiPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      ma_uu_dai: number
+      tieu_de: string
+      ma_giam_gia: string
+      phan_tram_giam: number
+      mo_ta: string | null
+      loai_uu_dai: string
+      icon: string
+      accent: string
+      ngay_het_han: Date
+      is_deleted: boolean
+      created_at: Date
+    }, ExtArgs["result"]["uu_dai"]>
+    composites: {}
+  }
+
+  type uu_daiGetPayload<S extends boolean | null | undefined | uu_daiDefaultArgs> = $Result.GetResult<Prisma.$uu_daiPayload, S>
+
+  type uu_daiCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<uu_daiFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Uu_daiCountAggregateInputType | true
+    }
+
+  export interface uu_daiDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['uu_dai'], meta: { name: 'uu_dai' } }
+    /**
+     * Find zero or one Uu_dai that matches the filter.
+     * @param {uu_daiFindUniqueArgs} args - Arguments to find a Uu_dai
+     * @example
+     * // Get one Uu_dai
+     * const uu_dai = await prisma.uu_dai.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends uu_daiFindUniqueArgs>(args: SelectSubset<T, uu_daiFindUniqueArgs<ExtArgs>>): Prisma__uu_daiClient<$Result.GetResult<Prisma.$uu_daiPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Uu_dai that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {uu_daiFindUniqueOrThrowArgs} args - Arguments to find a Uu_dai
+     * @example
+     * // Get one Uu_dai
+     * const uu_dai = await prisma.uu_dai.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends uu_daiFindUniqueOrThrowArgs>(args: SelectSubset<T, uu_daiFindUniqueOrThrowArgs<ExtArgs>>): Prisma__uu_daiClient<$Result.GetResult<Prisma.$uu_daiPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Uu_dai that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {uu_daiFindFirstArgs} args - Arguments to find a Uu_dai
+     * @example
+     * // Get one Uu_dai
+     * const uu_dai = await prisma.uu_dai.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends uu_daiFindFirstArgs>(args?: SelectSubset<T, uu_daiFindFirstArgs<ExtArgs>>): Prisma__uu_daiClient<$Result.GetResult<Prisma.$uu_daiPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Uu_dai that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {uu_daiFindFirstOrThrowArgs} args - Arguments to find a Uu_dai
+     * @example
+     * // Get one Uu_dai
+     * const uu_dai = await prisma.uu_dai.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends uu_daiFindFirstOrThrowArgs>(args?: SelectSubset<T, uu_daiFindFirstOrThrowArgs<ExtArgs>>): Prisma__uu_daiClient<$Result.GetResult<Prisma.$uu_daiPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Uu_dais that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {uu_daiFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Uu_dais
+     * const uu_dais = await prisma.uu_dai.findMany()
+     * 
+     * // Get first 10 Uu_dais
+     * const uu_dais = await prisma.uu_dai.findMany({ take: 10 })
+     * 
+     * // Only select the `ma_uu_dai`
+     * const uu_daiWithMa_uu_daiOnly = await prisma.uu_dai.findMany({ select: { ma_uu_dai: true } })
+     * 
+     */
+    findMany<T extends uu_daiFindManyArgs>(args?: SelectSubset<T, uu_daiFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$uu_daiPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Uu_dai.
+     * @param {uu_daiCreateArgs} args - Arguments to create a Uu_dai.
+     * @example
+     * // Create one Uu_dai
+     * const Uu_dai = await prisma.uu_dai.create({
+     *   data: {
+     *     // ... data to create a Uu_dai
+     *   }
+     * })
+     * 
+     */
+    create<T extends uu_daiCreateArgs>(args: SelectSubset<T, uu_daiCreateArgs<ExtArgs>>): Prisma__uu_daiClient<$Result.GetResult<Prisma.$uu_daiPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Uu_dais.
+     * @param {uu_daiCreateManyArgs} args - Arguments to create many Uu_dais.
+     * @example
+     * // Create many Uu_dais
+     * const uu_dai = await prisma.uu_dai.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends uu_daiCreateManyArgs>(args?: SelectSubset<T, uu_daiCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Uu_dai.
+     * @param {uu_daiDeleteArgs} args - Arguments to delete one Uu_dai.
+     * @example
+     * // Delete one Uu_dai
+     * const Uu_dai = await prisma.uu_dai.delete({
+     *   where: {
+     *     // ... filter to delete one Uu_dai
+     *   }
+     * })
+     * 
+     */
+    delete<T extends uu_daiDeleteArgs>(args: SelectSubset<T, uu_daiDeleteArgs<ExtArgs>>): Prisma__uu_daiClient<$Result.GetResult<Prisma.$uu_daiPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Uu_dai.
+     * @param {uu_daiUpdateArgs} args - Arguments to update one Uu_dai.
+     * @example
+     * // Update one Uu_dai
+     * const uu_dai = await prisma.uu_dai.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends uu_daiUpdateArgs>(args: SelectSubset<T, uu_daiUpdateArgs<ExtArgs>>): Prisma__uu_daiClient<$Result.GetResult<Prisma.$uu_daiPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Uu_dais.
+     * @param {uu_daiDeleteManyArgs} args - Arguments to filter Uu_dais to delete.
+     * @example
+     * // Delete a few Uu_dais
+     * const { count } = await prisma.uu_dai.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends uu_daiDeleteManyArgs>(args?: SelectSubset<T, uu_daiDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Uu_dais.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {uu_daiUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Uu_dais
+     * const uu_dai = await prisma.uu_dai.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends uu_daiUpdateManyArgs>(args: SelectSubset<T, uu_daiUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Uu_dai.
+     * @param {uu_daiUpsertArgs} args - Arguments to update or create a Uu_dai.
+     * @example
+     * // Update or create a Uu_dai
+     * const uu_dai = await prisma.uu_dai.upsert({
+     *   create: {
+     *     // ... data to create a Uu_dai
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Uu_dai we want to update
+     *   }
+     * })
+     */
+    upsert<T extends uu_daiUpsertArgs>(args: SelectSubset<T, uu_daiUpsertArgs<ExtArgs>>): Prisma__uu_daiClient<$Result.GetResult<Prisma.$uu_daiPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Uu_dais.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {uu_daiCountArgs} args - Arguments to filter Uu_dais to count.
+     * @example
+     * // Count the number of Uu_dais
+     * const count = await prisma.uu_dai.count({
+     *   where: {
+     *     // ... the filter for the Uu_dais we want to count
+     *   }
+     * })
+    **/
+    count<T extends uu_daiCountArgs>(
+      args?: Subset<T, uu_daiCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Uu_daiCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Uu_dai.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Uu_daiAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Uu_daiAggregateArgs>(args: Subset<T, Uu_daiAggregateArgs>): Prisma.PrismaPromise<GetUu_daiAggregateType<T>>
+
+    /**
+     * Group by Uu_dai.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {uu_daiGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends uu_daiGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: uu_daiGroupByArgs['orderBy'] }
+        : { orderBy?: uu_daiGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, uu_daiGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetUu_daiGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the uu_dai model
+   */
+  readonly fields: uu_daiFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for uu_dai.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__uu_daiClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    lich_su_uu_dai<T extends uu_dai$lich_su_uu_daiArgs<ExtArgs> = {}>(args?: Subset<T, uu_dai$lich_su_uu_daiArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$lich_su_uu_daiPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the uu_dai model
+   */
+  interface uu_daiFieldRefs {
+    readonly ma_uu_dai: FieldRef<"uu_dai", 'Int'>
+    readonly tieu_de: FieldRef<"uu_dai", 'String'>
+    readonly ma_giam_gia: FieldRef<"uu_dai", 'String'>
+    readonly phan_tram_giam: FieldRef<"uu_dai", 'Int'>
+    readonly mo_ta: FieldRef<"uu_dai", 'String'>
+    readonly loai_uu_dai: FieldRef<"uu_dai", 'String'>
+    readonly icon: FieldRef<"uu_dai", 'String'>
+    readonly accent: FieldRef<"uu_dai", 'String'>
+    readonly ngay_het_han: FieldRef<"uu_dai", 'DateTime'>
+    readonly is_deleted: FieldRef<"uu_dai", 'Boolean'>
+    readonly created_at: FieldRef<"uu_dai", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * uu_dai findUnique
+   */
+  export type uu_daiFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the uu_dai
+     */
+    select?: uu_daiSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the uu_dai
+     */
+    omit?: uu_daiOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: uu_daiInclude<ExtArgs> | null
+    /**
+     * Filter, which uu_dai to fetch.
+     */
+    where: uu_daiWhereUniqueInput
+  }
+
+  /**
+   * uu_dai findUniqueOrThrow
+   */
+  export type uu_daiFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the uu_dai
+     */
+    select?: uu_daiSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the uu_dai
+     */
+    omit?: uu_daiOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: uu_daiInclude<ExtArgs> | null
+    /**
+     * Filter, which uu_dai to fetch.
+     */
+    where: uu_daiWhereUniqueInput
+  }
+
+  /**
+   * uu_dai findFirst
+   */
+  export type uu_daiFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the uu_dai
+     */
+    select?: uu_daiSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the uu_dai
+     */
+    omit?: uu_daiOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: uu_daiInclude<ExtArgs> | null
+    /**
+     * Filter, which uu_dai to fetch.
+     */
+    where?: uu_daiWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of uu_dais to fetch.
+     */
+    orderBy?: uu_daiOrderByWithRelationInput | uu_daiOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for uu_dais.
+     */
+    cursor?: uu_daiWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` uu_dais from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` uu_dais.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of uu_dais.
+     */
+    distinct?: Uu_daiScalarFieldEnum | Uu_daiScalarFieldEnum[]
+  }
+
+  /**
+   * uu_dai findFirstOrThrow
+   */
+  export type uu_daiFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the uu_dai
+     */
+    select?: uu_daiSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the uu_dai
+     */
+    omit?: uu_daiOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: uu_daiInclude<ExtArgs> | null
+    /**
+     * Filter, which uu_dai to fetch.
+     */
+    where?: uu_daiWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of uu_dais to fetch.
+     */
+    orderBy?: uu_daiOrderByWithRelationInput | uu_daiOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for uu_dais.
+     */
+    cursor?: uu_daiWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` uu_dais from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` uu_dais.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of uu_dais.
+     */
+    distinct?: Uu_daiScalarFieldEnum | Uu_daiScalarFieldEnum[]
+  }
+
+  /**
+   * uu_dai findMany
+   */
+  export type uu_daiFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the uu_dai
+     */
+    select?: uu_daiSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the uu_dai
+     */
+    omit?: uu_daiOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: uu_daiInclude<ExtArgs> | null
+    /**
+     * Filter, which uu_dais to fetch.
+     */
+    where?: uu_daiWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of uu_dais to fetch.
+     */
+    orderBy?: uu_daiOrderByWithRelationInput | uu_daiOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing uu_dais.
+     */
+    cursor?: uu_daiWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` uu_dais from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` uu_dais.
+     */
+    skip?: number
+    distinct?: Uu_daiScalarFieldEnum | Uu_daiScalarFieldEnum[]
+  }
+
+  /**
+   * uu_dai create
+   */
+  export type uu_daiCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the uu_dai
+     */
+    select?: uu_daiSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the uu_dai
+     */
+    omit?: uu_daiOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: uu_daiInclude<ExtArgs> | null
+    /**
+     * The data needed to create a uu_dai.
+     */
+    data: XOR<uu_daiCreateInput, uu_daiUncheckedCreateInput>
+  }
+
+  /**
+   * uu_dai createMany
+   */
+  export type uu_daiCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many uu_dais.
+     */
+    data: uu_daiCreateManyInput | uu_daiCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * uu_dai update
+   */
+  export type uu_daiUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the uu_dai
+     */
+    select?: uu_daiSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the uu_dai
+     */
+    omit?: uu_daiOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: uu_daiInclude<ExtArgs> | null
+    /**
+     * The data needed to update a uu_dai.
+     */
+    data: XOR<uu_daiUpdateInput, uu_daiUncheckedUpdateInput>
+    /**
+     * Choose, which uu_dai to update.
+     */
+    where: uu_daiWhereUniqueInput
+  }
+
+  /**
+   * uu_dai updateMany
+   */
+  export type uu_daiUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update uu_dais.
+     */
+    data: XOR<uu_daiUpdateManyMutationInput, uu_daiUncheckedUpdateManyInput>
+    /**
+     * Filter which uu_dais to update
+     */
+    where?: uu_daiWhereInput
+    /**
+     * Limit how many uu_dais to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * uu_dai upsert
+   */
+  export type uu_daiUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the uu_dai
+     */
+    select?: uu_daiSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the uu_dai
+     */
+    omit?: uu_daiOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: uu_daiInclude<ExtArgs> | null
+    /**
+     * The filter to search for the uu_dai to update in case it exists.
+     */
+    where: uu_daiWhereUniqueInput
+    /**
+     * In case the uu_dai found by the `where` argument doesn't exist, create a new uu_dai with this data.
+     */
+    create: XOR<uu_daiCreateInput, uu_daiUncheckedCreateInput>
+    /**
+     * In case the uu_dai was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<uu_daiUpdateInput, uu_daiUncheckedUpdateInput>
+  }
+
+  /**
+   * uu_dai delete
+   */
+  export type uu_daiDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the uu_dai
+     */
+    select?: uu_daiSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the uu_dai
+     */
+    omit?: uu_daiOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: uu_daiInclude<ExtArgs> | null
+    /**
+     * Filter which uu_dai to delete.
+     */
+    where: uu_daiWhereUniqueInput
+  }
+
+  /**
+   * uu_dai deleteMany
+   */
+  export type uu_daiDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which uu_dais to delete
+     */
+    where?: uu_daiWhereInput
+    /**
+     * Limit how many uu_dais to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * uu_dai.lich_su_uu_dai
+   */
+  export type uu_dai$lich_su_uu_daiArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the lich_su_uu_dai
+     */
+    select?: lich_su_uu_daiSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the lich_su_uu_dai
+     */
+    omit?: lich_su_uu_daiOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: lich_su_uu_daiInclude<ExtArgs> | null
+    where?: lich_su_uu_daiWhereInput
+    orderBy?: lich_su_uu_daiOrderByWithRelationInput | lich_su_uu_daiOrderByWithRelationInput[]
+    cursor?: lich_su_uu_daiWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Lich_su_uu_daiScalarFieldEnum | Lich_su_uu_daiScalarFieldEnum[]
+  }
+
+  /**
+   * uu_dai without action
+   */
+  export type uu_daiDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the uu_dai
+     */
+    select?: uu_daiSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the uu_dai
+     */
+    omit?: uu_daiOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: uu_daiInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model lich_su_uu_dai
+   */
+
+  export type AggregateLich_su_uu_dai = {
+    _count: Lich_su_uu_daiCountAggregateOutputType | null
+    _avg: Lich_su_uu_daiAvgAggregateOutputType | null
+    _sum: Lich_su_uu_daiSumAggregateOutputType | null
+    _min: Lich_su_uu_daiMinAggregateOutputType | null
+    _max: Lich_su_uu_daiMaxAggregateOutputType | null
+  }
+
+  export type Lich_su_uu_daiAvgAggregateOutputType = {
+    id: number | null
+    ma_uu_dai: number | null
+  }
+
+  export type Lich_su_uu_daiSumAggregateOutputType = {
+    id: number | null
+    ma_uu_dai: number | null
+  }
+
+  export type Lich_su_uu_daiMinAggregateOutputType = {
+    id: number | null
+    tai_khoan: string | null
+    ma_uu_dai: number | null
+    ngay_su_dung: Date | null
+  }
+
+  export type Lich_su_uu_daiMaxAggregateOutputType = {
+    id: number | null
+    tai_khoan: string | null
+    ma_uu_dai: number | null
+    ngay_su_dung: Date | null
+  }
+
+  export type Lich_su_uu_daiCountAggregateOutputType = {
+    id: number
+    tai_khoan: number
+    ma_uu_dai: number
+    ngay_su_dung: number
+    _all: number
+  }
+
+
+  export type Lich_su_uu_daiAvgAggregateInputType = {
+    id?: true
+    ma_uu_dai?: true
+  }
+
+  export type Lich_su_uu_daiSumAggregateInputType = {
+    id?: true
+    ma_uu_dai?: true
+  }
+
+  export type Lich_su_uu_daiMinAggregateInputType = {
+    id?: true
+    tai_khoan?: true
+    ma_uu_dai?: true
+    ngay_su_dung?: true
+  }
+
+  export type Lich_su_uu_daiMaxAggregateInputType = {
+    id?: true
+    tai_khoan?: true
+    ma_uu_dai?: true
+    ngay_su_dung?: true
+  }
+
+  export type Lich_su_uu_daiCountAggregateInputType = {
+    id?: true
+    tai_khoan?: true
+    ma_uu_dai?: true
+    ngay_su_dung?: true
+    _all?: true
+  }
+
+  export type Lich_su_uu_daiAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which lich_su_uu_dai to aggregate.
+     */
+    where?: lich_su_uu_daiWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of lich_su_uu_dais to fetch.
+     */
+    orderBy?: lich_su_uu_daiOrderByWithRelationInput | lich_su_uu_daiOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: lich_su_uu_daiWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` lich_su_uu_dais from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` lich_su_uu_dais.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned lich_su_uu_dais
+    **/
+    _count?: true | Lich_su_uu_daiCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Lich_su_uu_daiAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Lich_su_uu_daiSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Lich_su_uu_daiMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Lich_su_uu_daiMaxAggregateInputType
+  }
+
+  export type GetLich_su_uu_daiAggregateType<T extends Lich_su_uu_daiAggregateArgs> = {
+        [P in keyof T & keyof AggregateLich_su_uu_dai]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateLich_su_uu_dai[P]>
+      : GetScalarType<T[P], AggregateLich_su_uu_dai[P]>
+  }
+
+
+
+
+  export type lich_su_uu_daiGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: lich_su_uu_daiWhereInput
+    orderBy?: lich_su_uu_daiOrderByWithAggregationInput | lich_su_uu_daiOrderByWithAggregationInput[]
+    by: Lich_su_uu_daiScalarFieldEnum[] | Lich_su_uu_daiScalarFieldEnum
+    having?: lich_su_uu_daiScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Lich_su_uu_daiCountAggregateInputType | true
+    _avg?: Lich_su_uu_daiAvgAggregateInputType
+    _sum?: Lich_su_uu_daiSumAggregateInputType
+    _min?: Lich_su_uu_daiMinAggregateInputType
+    _max?: Lich_su_uu_daiMaxAggregateInputType
+  }
+
+  export type Lich_su_uu_daiGroupByOutputType = {
+    id: number
+    tai_khoan: string
+    ma_uu_dai: number
+    ngay_su_dung: Date
+    _count: Lich_su_uu_daiCountAggregateOutputType | null
+    _avg: Lich_su_uu_daiAvgAggregateOutputType | null
+    _sum: Lich_su_uu_daiSumAggregateOutputType | null
+    _min: Lich_su_uu_daiMinAggregateOutputType | null
+    _max: Lich_su_uu_daiMaxAggregateOutputType | null
+  }
+
+  type GetLich_su_uu_daiGroupByPayload<T extends lich_su_uu_daiGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Lich_su_uu_daiGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Lich_su_uu_daiGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Lich_su_uu_daiGroupByOutputType[P]>
+            : GetScalarType<T[P], Lich_su_uu_daiGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type lich_su_uu_daiSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    tai_khoan?: boolean
+    ma_uu_dai?: boolean
+    ngay_su_dung?: boolean
+    uu_dai?: boolean | uu_daiDefaultArgs<ExtArgs>
+    nguoi_dung?: boolean | nguoi_dungDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["lich_su_uu_dai"]>
+
+
+
+  export type lich_su_uu_daiSelectScalar = {
+    id?: boolean
+    tai_khoan?: boolean
+    ma_uu_dai?: boolean
+    ngay_su_dung?: boolean
+  }
+
+  export type lich_su_uu_daiOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "tai_khoan" | "ma_uu_dai" | "ngay_su_dung", ExtArgs["result"]["lich_su_uu_dai"]>
+  export type lich_su_uu_daiInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    uu_dai?: boolean | uu_daiDefaultArgs<ExtArgs>
+    nguoi_dung?: boolean | nguoi_dungDefaultArgs<ExtArgs>
+  }
+
+  export type $lich_su_uu_daiPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "lich_su_uu_dai"
+    objects: {
+      uu_dai: Prisma.$uu_daiPayload<ExtArgs>
+      nguoi_dung: Prisma.$nguoi_dungPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      tai_khoan: string
+      ma_uu_dai: number
+      ngay_su_dung: Date
+    }, ExtArgs["result"]["lich_su_uu_dai"]>
+    composites: {}
+  }
+
+  type lich_su_uu_daiGetPayload<S extends boolean | null | undefined | lich_su_uu_daiDefaultArgs> = $Result.GetResult<Prisma.$lich_su_uu_daiPayload, S>
+
+  type lich_su_uu_daiCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<lich_su_uu_daiFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Lich_su_uu_daiCountAggregateInputType | true
+    }
+
+  export interface lich_su_uu_daiDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['lich_su_uu_dai'], meta: { name: 'lich_su_uu_dai' } }
+    /**
+     * Find zero or one Lich_su_uu_dai that matches the filter.
+     * @param {lich_su_uu_daiFindUniqueArgs} args - Arguments to find a Lich_su_uu_dai
+     * @example
+     * // Get one Lich_su_uu_dai
+     * const lich_su_uu_dai = await prisma.lich_su_uu_dai.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends lich_su_uu_daiFindUniqueArgs>(args: SelectSubset<T, lich_su_uu_daiFindUniqueArgs<ExtArgs>>): Prisma__lich_su_uu_daiClient<$Result.GetResult<Prisma.$lich_su_uu_daiPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Lich_su_uu_dai that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {lich_su_uu_daiFindUniqueOrThrowArgs} args - Arguments to find a Lich_su_uu_dai
+     * @example
+     * // Get one Lich_su_uu_dai
+     * const lich_su_uu_dai = await prisma.lich_su_uu_dai.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends lich_su_uu_daiFindUniqueOrThrowArgs>(args: SelectSubset<T, lich_su_uu_daiFindUniqueOrThrowArgs<ExtArgs>>): Prisma__lich_su_uu_daiClient<$Result.GetResult<Prisma.$lich_su_uu_daiPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Lich_su_uu_dai that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {lich_su_uu_daiFindFirstArgs} args - Arguments to find a Lich_su_uu_dai
+     * @example
+     * // Get one Lich_su_uu_dai
+     * const lich_su_uu_dai = await prisma.lich_su_uu_dai.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends lich_su_uu_daiFindFirstArgs>(args?: SelectSubset<T, lich_su_uu_daiFindFirstArgs<ExtArgs>>): Prisma__lich_su_uu_daiClient<$Result.GetResult<Prisma.$lich_su_uu_daiPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Lich_su_uu_dai that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {lich_su_uu_daiFindFirstOrThrowArgs} args - Arguments to find a Lich_su_uu_dai
+     * @example
+     * // Get one Lich_su_uu_dai
+     * const lich_su_uu_dai = await prisma.lich_su_uu_dai.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends lich_su_uu_daiFindFirstOrThrowArgs>(args?: SelectSubset<T, lich_su_uu_daiFindFirstOrThrowArgs<ExtArgs>>): Prisma__lich_su_uu_daiClient<$Result.GetResult<Prisma.$lich_su_uu_daiPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Lich_su_uu_dais that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {lich_su_uu_daiFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Lich_su_uu_dais
+     * const lich_su_uu_dais = await prisma.lich_su_uu_dai.findMany()
+     * 
+     * // Get first 10 Lich_su_uu_dais
+     * const lich_su_uu_dais = await prisma.lich_su_uu_dai.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const lich_su_uu_daiWithIdOnly = await prisma.lich_su_uu_dai.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends lich_su_uu_daiFindManyArgs>(args?: SelectSubset<T, lich_su_uu_daiFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$lich_su_uu_daiPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Lich_su_uu_dai.
+     * @param {lich_su_uu_daiCreateArgs} args - Arguments to create a Lich_su_uu_dai.
+     * @example
+     * // Create one Lich_su_uu_dai
+     * const Lich_su_uu_dai = await prisma.lich_su_uu_dai.create({
+     *   data: {
+     *     // ... data to create a Lich_su_uu_dai
+     *   }
+     * })
+     * 
+     */
+    create<T extends lich_su_uu_daiCreateArgs>(args: SelectSubset<T, lich_su_uu_daiCreateArgs<ExtArgs>>): Prisma__lich_su_uu_daiClient<$Result.GetResult<Prisma.$lich_su_uu_daiPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Lich_su_uu_dais.
+     * @param {lich_su_uu_daiCreateManyArgs} args - Arguments to create many Lich_su_uu_dais.
+     * @example
+     * // Create many Lich_su_uu_dais
+     * const lich_su_uu_dai = await prisma.lich_su_uu_dai.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends lich_su_uu_daiCreateManyArgs>(args?: SelectSubset<T, lich_su_uu_daiCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Lich_su_uu_dai.
+     * @param {lich_su_uu_daiDeleteArgs} args - Arguments to delete one Lich_su_uu_dai.
+     * @example
+     * // Delete one Lich_su_uu_dai
+     * const Lich_su_uu_dai = await prisma.lich_su_uu_dai.delete({
+     *   where: {
+     *     // ... filter to delete one Lich_su_uu_dai
+     *   }
+     * })
+     * 
+     */
+    delete<T extends lich_su_uu_daiDeleteArgs>(args: SelectSubset<T, lich_su_uu_daiDeleteArgs<ExtArgs>>): Prisma__lich_su_uu_daiClient<$Result.GetResult<Prisma.$lich_su_uu_daiPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Lich_su_uu_dai.
+     * @param {lich_su_uu_daiUpdateArgs} args - Arguments to update one Lich_su_uu_dai.
+     * @example
+     * // Update one Lich_su_uu_dai
+     * const lich_su_uu_dai = await prisma.lich_su_uu_dai.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends lich_su_uu_daiUpdateArgs>(args: SelectSubset<T, lich_su_uu_daiUpdateArgs<ExtArgs>>): Prisma__lich_su_uu_daiClient<$Result.GetResult<Prisma.$lich_su_uu_daiPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Lich_su_uu_dais.
+     * @param {lich_su_uu_daiDeleteManyArgs} args - Arguments to filter Lich_su_uu_dais to delete.
+     * @example
+     * // Delete a few Lich_su_uu_dais
+     * const { count } = await prisma.lich_su_uu_dai.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends lich_su_uu_daiDeleteManyArgs>(args?: SelectSubset<T, lich_su_uu_daiDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Lich_su_uu_dais.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {lich_su_uu_daiUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Lich_su_uu_dais
+     * const lich_su_uu_dai = await prisma.lich_su_uu_dai.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends lich_su_uu_daiUpdateManyArgs>(args: SelectSubset<T, lich_su_uu_daiUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Lich_su_uu_dai.
+     * @param {lich_su_uu_daiUpsertArgs} args - Arguments to update or create a Lich_su_uu_dai.
+     * @example
+     * // Update or create a Lich_su_uu_dai
+     * const lich_su_uu_dai = await prisma.lich_su_uu_dai.upsert({
+     *   create: {
+     *     // ... data to create a Lich_su_uu_dai
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Lich_su_uu_dai we want to update
+     *   }
+     * })
+     */
+    upsert<T extends lich_su_uu_daiUpsertArgs>(args: SelectSubset<T, lich_su_uu_daiUpsertArgs<ExtArgs>>): Prisma__lich_su_uu_daiClient<$Result.GetResult<Prisma.$lich_su_uu_daiPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Lich_su_uu_dais.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {lich_su_uu_daiCountArgs} args - Arguments to filter Lich_su_uu_dais to count.
+     * @example
+     * // Count the number of Lich_su_uu_dais
+     * const count = await prisma.lich_su_uu_dai.count({
+     *   where: {
+     *     // ... the filter for the Lich_su_uu_dais we want to count
+     *   }
+     * })
+    **/
+    count<T extends lich_su_uu_daiCountArgs>(
+      args?: Subset<T, lich_su_uu_daiCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Lich_su_uu_daiCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Lich_su_uu_dai.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Lich_su_uu_daiAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Lich_su_uu_daiAggregateArgs>(args: Subset<T, Lich_su_uu_daiAggregateArgs>): Prisma.PrismaPromise<GetLich_su_uu_daiAggregateType<T>>
+
+    /**
+     * Group by Lich_su_uu_dai.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {lich_su_uu_daiGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends lich_su_uu_daiGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: lich_su_uu_daiGroupByArgs['orderBy'] }
+        : { orderBy?: lich_su_uu_daiGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, lich_su_uu_daiGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetLich_su_uu_daiGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the lich_su_uu_dai model
+   */
+  readonly fields: lich_su_uu_daiFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for lich_su_uu_dai.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__lich_su_uu_daiClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    uu_dai<T extends uu_daiDefaultArgs<ExtArgs> = {}>(args?: Subset<T, uu_daiDefaultArgs<ExtArgs>>): Prisma__uu_daiClient<$Result.GetResult<Prisma.$uu_daiPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    nguoi_dung<T extends nguoi_dungDefaultArgs<ExtArgs> = {}>(args?: Subset<T, nguoi_dungDefaultArgs<ExtArgs>>): Prisma__nguoi_dungClient<$Result.GetResult<Prisma.$nguoi_dungPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the lich_su_uu_dai model
+   */
+  interface lich_su_uu_daiFieldRefs {
+    readonly id: FieldRef<"lich_su_uu_dai", 'Int'>
+    readonly tai_khoan: FieldRef<"lich_su_uu_dai", 'String'>
+    readonly ma_uu_dai: FieldRef<"lich_su_uu_dai", 'Int'>
+    readonly ngay_su_dung: FieldRef<"lich_su_uu_dai", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * lich_su_uu_dai findUnique
+   */
+  export type lich_su_uu_daiFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the lich_su_uu_dai
+     */
+    select?: lich_su_uu_daiSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the lich_su_uu_dai
+     */
+    omit?: lich_su_uu_daiOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: lich_su_uu_daiInclude<ExtArgs> | null
+    /**
+     * Filter, which lich_su_uu_dai to fetch.
+     */
+    where: lich_su_uu_daiWhereUniqueInput
+  }
+
+  /**
+   * lich_su_uu_dai findUniqueOrThrow
+   */
+  export type lich_su_uu_daiFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the lich_su_uu_dai
+     */
+    select?: lich_su_uu_daiSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the lich_su_uu_dai
+     */
+    omit?: lich_su_uu_daiOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: lich_su_uu_daiInclude<ExtArgs> | null
+    /**
+     * Filter, which lich_su_uu_dai to fetch.
+     */
+    where: lich_su_uu_daiWhereUniqueInput
+  }
+
+  /**
+   * lich_su_uu_dai findFirst
+   */
+  export type lich_su_uu_daiFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the lich_su_uu_dai
+     */
+    select?: lich_su_uu_daiSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the lich_su_uu_dai
+     */
+    omit?: lich_su_uu_daiOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: lich_su_uu_daiInclude<ExtArgs> | null
+    /**
+     * Filter, which lich_su_uu_dai to fetch.
+     */
+    where?: lich_su_uu_daiWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of lich_su_uu_dais to fetch.
+     */
+    orderBy?: lich_su_uu_daiOrderByWithRelationInput | lich_su_uu_daiOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for lich_su_uu_dais.
+     */
+    cursor?: lich_su_uu_daiWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` lich_su_uu_dais from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` lich_su_uu_dais.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of lich_su_uu_dais.
+     */
+    distinct?: Lich_su_uu_daiScalarFieldEnum | Lich_su_uu_daiScalarFieldEnum[]
+  }
+
+  /**
+   * lich_su_uu_dai findFirstOrThrow
+   */
+  export type lich_su_uu_daiFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the lich_su_uu_dai
+     */
+    select?: lich_su_uu_daiSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the lich_su_uu_dai
+     */
+    omit?: lich_su_uu_daiOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: lich_su_uu_daiInclude<ExtArgs> | null
+    /**
+     * Filter, which lich_su_uu_dai to fetch.
+     */
+    where?: lich_su_uu_daiWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of lich_su_uu_dais to fetch.
+     */
+    orderBy?: lich_su_uu_daiOrderByWithRelationInput | lich_su_uu_daiOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for lich_su_uu_dais.
+     */
+    cursor?: lich_su_uu_daiWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` lich_su_uu_dais from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` lich_su_uu_dais.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of lich_su_uu_dais.
+     */
+    distinct?: Lich_su_uu_daiScalarFieldEnum | Lich_su_uu_daiScalarFieldEnum[]
+  }
+
+  /**
+   * lich_su_uu_dai findMany
+   */
+  export type lich_su_uu_daiFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the lich_su_uu_dai
+     */
+    select?: lich_su_uu_daiSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the lich_su_uu_dai
+     */
+    omit?: lich_su_uu_daiOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: lich_su_uu_daiInclude<ExtArgs> | null
+    /**
+     * Filter, which lich_su_uu_dais to fetch.
+     */
+    where?: lich_su_uu_daiWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of lich_su_uu_dais to fetch.
+     */
+    orderBy?: lich_su_uu_daiOrderByWithRelationInput | lich_su_uu_daiOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing lich_su_uu_dais.
+     */
+    cursor?: lich_su_uu_daiWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` lich_su_uu_dais from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` lich_su_uu_dais.
+     */
+    skip?: number
+    distinct?: Lich_su_uu_daiScalarFieldEnum | Lich_su_uu_daiScalarFieldEnum[]
+  }
+
+  /**
+   * lich_su_uu_dai create
+   */
+  export type lich_su_uu_daiCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the lich_su_uu_dai
+     */
+    select?: lich_su_uu_daiSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the lich_su_uu_dai
+     */
+    omit?: lich_su_uu_daiOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: lich_su_uu_daiInclude<ExtArgs> | null
+    /**
+     * The data needed to create a lich_su_uu_dai.
+     */
+    data: XOR<lich_su_uu_daiCreateInput, lich_su_uu_daiUncheckedCreateInput>
+  }
+
+  /**
+   * lich_su_uu_dai createMany
+   */
+  export type lich_su_uu_daiCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many lich_su_uu_dais.
+     */
+    data: lich_su_uu_daiCreateManyInput | lich_su_uu_daiCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * lich_su_uu_dai update
+   */
+  export type lich_su_uu_daiUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the lich_su_uu_dai
+     */
+    select?: lich_su_uu_daiSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the lich_su_uu_dai
+     */
+    omit?: lich_su_uu_daiOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: lich_su_uu_daiInclude<ExtArgs> | null
+    /**
+     * The data needed to update a lich_su_uu_dai.
+     */
+    data: XOR<lich_su_uu_daiUpdateInput, lich_su_uu_daiUncheckedUpdateInput>
+    /**
+     * Choose, which lich_su_uu_dai to update.
+     */
+    where: lich_su_uu_daiWhereUniqueInput
+  }
+
+  /**
+   * lich_su_uu_dai updateMany
+   */
+  export type lich_su_uu_daiUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update lich_su_uu_dais.
+     */
+    data: XOR<lich_su_uu_daiUpdateManyMutationInput, lich_su_uu_daiUncheckedUpdateManyInput>
+    /**
+     * Filter which lich_su_uu_dais to update
+     */
+    where?: lich_su_uu_daiWhereInput
+    /**
+     * Limit how many lich_su_uu_dais to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * lich_su_uu_dai upsert
+   */
+  export type lich_su_uu_daiUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the lich_su_uu_dai
+     */
+    select?: lich_su_uu_daiSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the lich_su_uu_dai
+     */
+    omit?: lich_su_uu_daiOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: lich_su_uu_daiInclude<ExtArgs> | null
+    /**
+     * The filter to search for the lich_su_uu_dai to update in case it exists.
+     */
+    where: lich_su_uu_daiWhereUniqueInput
+    /**
+     * In case the lich_su_uu_dai found by the `where` argument doesn't exist, create a new lich_su_uu_dai with this data.
+     */
+    create: XOR<lich_su_uu_daiCreateInput, lich_su_uu_daiUncheckedCreateInput>
+    /**
+     * In case the lich_su_uu_dai was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<lich_su_uu_daiUpdateInput, lich_su_uu_daiUncheckedUpdateInput>
+  }
+
+  /**
+   * lich_su_uu_dai delete
+   */
+  export type lich_su_uu_daiDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the lich_su_uu_dai
+     */
+    select?: lich_su_uu_daiSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the lich_su_uu_dai
+     */
+    omit?: lich_su_uu_daiOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: lich_su_uu_daiInclude<ExtArgs> | null
+    /**
+     * Filter which lich_su_uu_dai to delete.
+     */
+    where: lich_su_uu_daiWhereUniqueInput
+  }
+
+  /**
+   * lich_su_uu_dai deleteMany
+   */
+  export type lich_su_uu_daiDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which lich_su_uu_dais to delete
+     */
+    where?: lich_su_uu_daiWhereInput
+    /**
+     * Limit how many lich_su_uu_dais to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * lich_su_uu_dai without action
+   */
+  export type lich_su_uu_daiDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the lich_su_uu_dai
+     */
+    select?: lich_su_uu_daiSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the lich_su_uu_dai
+     */
+    omit?: lich_su_uu_daiOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: lich_su_uu_daiInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -11866,6 +14119,33 @@ export namespace Prisma {
   export type Rap_phimScalarFieldEnum = (typeof Rap_phimScalarFieldEnum)[keyof typeof Rap_phimScalarFieldEnum]
 
 
+  export const Uu_daiScalarFieldEnum: {
+    ma_uu_dai: 'ma_uu_dai',
+    tieu_de: 'tieu_de',
+    ma_giam_gia: 'ma_giam_gia',
+    phan_tram_giam: 'phan_tram_giam',
+    mo_ta: 'mo_ta',
+    loai_uu_dai: 'loai_uu_dai',
+    icon: 'icon',
+    accent: 'accent',
+    ngay_het_han: 'ngay_het_han',
+    is_deleted: 'is_deleted',
+    created_at: 'created_at'
+  };
+
+  export type Uu_daiScalarFieldEnum = (typeof Uu_daiScalarFieldEnum)[keyof typeof Uu_daiScalarFieldEnum]
+
+
+  export const Lich_su_uu_daiScalarFieldEnum: {
+    id: 'id',
+    tai_khoan: 'tai_khoan',
+    ma_uu_dai: 'ma_uu_dai',
+    ngay_su_dung: 'ngay_su_dung'
+  };
+
+  export type Lich_su_uu_daiScalarFieldEnum = (typeof Lich_su_uu_daiScalarFieldEnum)[keyof typeof Lich_su_uu_daiScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
@@ -11964,6 +14244,25 @@ export namespace Prisma {
   };
 
   export type rap_phimOrderByRelevanceFieldEnum = (typeof rap_phimOrderByRelevanceFieldEnum)[keyof typeof rap_phimOrderByRelevanceFieldEnum]
+
+
+  export const uu_daiOrderByRelevanceFieldEnum: {
+    tieu_de: 'tieu_de',
+    ma_giam_gia: 'ma_giam_gia',
+    mo_ta: 'mo_ta',
+    loai_uu_dai: 'loai_uu_dai',
+    icon: 'icon',
+    accent: 'accent'
+  };
+
+  export type uu_daiOrderByRelevanceFieldEnum = (typeof uu_daiOrderByRelevanceFieldEnum)[keyof typeof uu_daiOrderByRelevanceFieldEnum]
+
+
+  export const lich_su_uu_daiOrderByRelevanceFieldEnum: {
+    tai_khoan: 'tai_khoan'
+  };
+
+  export type lich_su_uu_daiOrderByRelevanceFieldEnum = (typeof lich_su_uu_daiOrderByRelevanceFieldEnum)[keyof typeof lich_su_uu_daiOrderByRelevanceFieldEnum]
 
 
   /**
@@ -12416,6 +14715,7 @@ export namespace Prisma {
     created_at?: DateTimeFilter<"nguoi_dung"> | Date | string
     updated_at?: DateTimeFilter<"nguoi_dung"> | Date | string
     dat_ve?: Dat_veListRelationFilter
+    lich_su_uu_dai?: Lich_su_uu_daiListRelationFilter
   }
 
   export type nguoi_dungOrderByWithRelationInput = {
@@ -12429,6 +14729,7 @@ export namespace Prisma {
     created_at?: SortOrder
     updated_at?: SortOrder
     dat_ve?: dat_veOrderByRelationAggregateInput
+    lich_su_uu_dai?: lich_su_uu_daiOrderByRelationAggregateInput
     _relevance?: nguoi_dungOrderByRelevanceInput
   }
 
@@ -12446,6 +14747,7 @@ export namespace Prisma {
     created_at?: DateTimeFilter<"nguoi_dung"> | Date | string
     updated_at?: DateTimeFilter<"nguoi_dung"> | Date | string
     dat_ve?: Dat_veListRelationFilter
+    lich_su_uu_dai?: Lich_su_uu_daiListRelationFilter
   }, "tai_khoan" | "email">
 
   export type nguoi_dungOrderByWithAggregationInput = {
@@ -12656,6 +14958,151 @@ export namespace Prisma {
     ma_rap?: IntWithAggregatesFilter<"rap_phim"> | number
     ten_rap?: StringWithAggregatesFilter<"rap_phim"> | string
     ma_cum_rap?: StringWithAggregatesFilter<"rap_phim"> | string
+  }
+
+  export type uu_daiWhereInput = {
+    AND?: uu_daiWhereInput | uu_daiWhereInput[]
+    OR?: uu_daiWhereInput[]
+    NOT?: uu_daiWhereInput | uu_daiWhereInput[]
+    ma_uu_dai?: IntFilter<"uu_dai"> | number
+    tieu_de?: StringFilter<"uu_dai"> | string
+    ma_giam_gia?: StringFilter<"uu_dai"> | string
+    phan_tram_giam?: IntFilter<"uu_dai"> | number
+    mo_ta?: StringNullableFilter<"uu_dai"> | string | null
+    loai_uu_dai?: StringFilter<"uu_dai"> | string
+    icon?: StringFilter<"uu_dai"> | string
+    accent?: StringFilter<"uu_dai"> | string
+    ngay_het_han?: DateTimeFilter<"uu_dai"> | Date | string
+    is_deleted?: BoolFilter<"uu_dai"> | boolean
+    created_at?: DateTimeFilter<"uu_dai"> | Date | string
+    lich_su_uu_dai?: Lich_su_uu_daiListRelationFilter
+  }
+
+  export type uu_daiOrderByWithRelationInput = {
+    ma_uu_dai?: SortOrder
+    tieu_de?: SortOrder
+    ma_giam_gia?: SortOrder
+    phan_tram_giam?: SortOrder
+    mo_ta?: SortOrderInput | SortOrder
+    loai_uu_dai?: SortOrder
+    icon?: SortOrder
+    accent?: SortOrder
+    ngay_het_han?: SortOrder
+    is_deleted?: SortOrder
+    created_at?: SortOrder
+    lich_su_uu_dai?: lich_su_uu_daiOrderByRelationAggregateInput
+    _relevance?: uu_daiOrderByRelevanceInput
+  }
+
+  export type uu_daiWhereUniqueInput = Prisma.AtLeast<{
+    ma_uu_dai?: number
+    ma_giam_gia?: string
+    AND?: uu_daiWhereInput | uu_daiWhereInput[]
+    OR?: uu_daiWhereInput[]
+    NOT?: uu_daiWhereInput | uu_daiWhereInput[]
+    tieu_de?: StringFilter<"uu_dai"> | string
+    phan_tram_giam?: IntFilter<"uu_dai"> | number
+    mo_ta?: StringNullableFilter<"uu_dai"> | string | null
+    loai_uu_dai?: StringFilter<"uu_dai"> | string
+    icon?: StringFilter<"uu_dai"> | string
+    accent?: StringFilter<"uu_dai"> | string
+    ngay_het_han?: DateTimeFilter<"uu_dai"> | Date | string
+    is_deleted?: BoolFilter<"uu_dai"> | boolean
+    created_at?: DateTimeFilter<"uu_dai"> | Date | string
+    lich_su_uu_dai?: Lich_su_uu_daiListRelationFilter
+  }, "ma_uu_dai" | "ma_giam_gia">
+
+  export type uu_daiOrderByWithAggregationInput = {
+    ma_uu_dai?: SortOrder
+    tieu_de?: SortOrder
+    ma_giam_gia?: SortOrder
+    phan_tram_giam?: SortOrder
+    mo_ta?: SortOrderInput | SortOrder
+    loai_uu_dai?: SortOrder
+    icon?: SortOrder
+    accent?: SortOrder
+    ngay_het_han?: SortOrder
+    is_deleted?: SortOrder
+    created_at?: SortOrder
+    _count?: uu_daiCountOrderByAggregateInput
+    _avg?: uu_daiAvgOrderByAggregateInput
+    _max?: uu_daiMaxOrderByAggregateInput
+    _min?: uu_daiMinOrderByAggregateInput
+    _sum?: uu_daiSumOrderByAggregateInput
+  }
+
+  export type uu_daiScalarWhereWithAggregatesInput = {
+    AND?: uu_daiScalarWhereWithAggregatesInput | uu_daiScalarWhereWithAggregatesInput[]
+    OR?: uu_daiScalarWhereWithAggregatesInput[]
+    NOT?: uu_daiScalarWhereWithAggregatesInput | uu_daiScalarWhereWithAggregatesInput[]
+    ma_uu_dai?: IntWithAggregatesFilter<"uu_dai"> | number
+    tieu_de?: StringWithAggregatesFilter<"uu_dai"> | string
+    ma_giam_gia?: StringWithAggregatesFilter<"uu_dai"> | string
+    phan_tram_giam?: IntWithAggregatesFilter<"uu_dai"> | number
+    mo_ta?: StringNullableWithAggregatesFilter<"uu_dai"> | string | null
+    loai_uu_dai?: StringWithAggregatesFilter<"uu_dai"> | string
+    icon?: StringWithAggregatesFilter<"uu_dai"> | string
+    accent?: StringWithAggregatesFilter<"uu_dai"> | string
+    ngay_het_han?: DateTimeWithAggregatesFilter<"uu_dai"> | Date | string
+    is_deleted?: BoolWithAggregatesFilter<"uu_dai"> | boolean
+    created_at?: DateTimeWithAggregatesFilter<"uu_dai"> | Date | string
+  }
+
+  export type lich_su_uu_daiWhereInput = {
+    AND?: lich_su_uu_daiWhereInput | lich_su_uu_daiWhereInput[]
+    OR?: lich_su_uu_daiWhereInput[]
+    NOT?: lich_su_uu_daiWhereInput | lich_su_uu_daiWhereInput[]
+    id?: IntFilter<"lich_su_uu_dai"> | number
+    tai_khoan?: StringFilter<"lich_su_uu_dai"> | string
+    ma_uu_dai?: IntFilter<"lich_su_uu_dai"> | number
+    ngay_su_dung?: DateTimeFilter<"lich_su_uu_dai"> | Date | string
+    uu_dai?: XOR<Uu_daiScalarRelationFilter, uu_daiWhereInput>
+    nguoi_dung?: XOR<Nguoi_dungScalarRelationFilter, nguoi_dungWhereInput>
+  }
+
+  export type lich_su_uu_daiOrderByWithRelationInput = {
+    id?: SortOrder
+    tai_khoan?: SortOrder
+    ma_uu_dai?: SortOrder
+    ngay_su_dung?: SortOrder
+    uu_dai?: uu_daiOrderByWithRelationInput
+    nguoi_dung?: nguoi_dungOrderByWithRelationInput
+    _relevance?: lich_su_uu_daiOrderByRelevanceInput
+  }
+
+  export type lich_su_uu_daiWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    tai_khoan_ma_uu_dai?: lich_su_uu_daiTai_khoanMa_uu_daiCompoundUniqueInput
+    AND?: lich_su_uu_daiWhereInput | lich_su_uu_daiWhereInput[]
+    OR?: lich_su_uu_daiWhereInput[]
+    NOT?: lich_su_uu_daiWhereInput | lich_su_uu_daiWhereInput[]
+    tai_khoan?: StringFilter<"lich_su_uu_dai"> | string
+    ma_uu_dai?: IntFilter<"lich_su_uu_dai"> | number
+    ngay_su_dung?: DateTimeFilter<"lich_su_uu_dai"> | Date | string
+    uu_dai?: XOR<Uu_daiScalarRelationFilter, uu_daiWhereInput>
+    nguoi_dung?: XOR<Nguoi_dungScalarRelationFilter, nguoi_dungWhereInput>
+  }, "id" | "tai_khoan_ma_uu_dai">
+
+  export type lich_su_uu_daiOrderByWithAggregationInput = {
+    id?: SortOrder
+    tai_khoan?: SortOrder
+    ma_uu_dai?: SortOrder
+    ngay_su_dung?: SortOrder
+    _count?: lich_su_uu_daiCountOrderByAggregateInput
+    _avg?: lich_su_uu_daiAvgOrderByAggregateInput
+    _max?: lich_su_uu_daiMaxOrderByAggregateInput
+    _min?: lich_su_uu_daiMinOrderByAggregateInput
+    _sum?: lich_su_uu_daiSumOrderByAggregateInput
+  }
+
+  export type lich_su_uu_daiScalarWhereWithAggregatesInput = {
+    AND?: lich_su_uu_daiScalarWhereWithAggregatesInput | lich_su_uu_daiScalarWhereWithAggregatesInput[]
+    OR?: lich_su_uu_daiScalarWhereWithAggregatesInput[]
+    NOT?: lich_su_uu_daiScalarWhereWithAggregatesInput | lich_su_uu_daiScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"lich_su_uu_dai"> | number
+    tai_khoan?: StringWithAggregatesFilter<"lich_su_uu_dai"> | string
+    ma_uu_dai?: IntWithAggregatesFilter<"lich_su_uu_dai"> | number
+    ngay_su_dung?: DateTimeWithAggregatesFilter<"lich_su_uu_dai"> | Date | string
   }
 
   export type bannerCreateInput = {
@@ -13019,6 +15466,7 @@ export namespace Prisma {
     created_at?: Date | string
     updated_at?: Date | string
     dat_ve?: dat_veCreateNestedManyWithoutNguoi_dungInput
+    lich_su_uu_dai?: lich_su_uu_daiCreateNestedManyWithoutNguoi_dungInput
   }
 
   export type nguoi_dungUncheckedCreateInput = {
@@ -13032,6 +15480,7 @@ export namespace Prisma {
     created_at?: Date | string
     updated_at?: Date | string
     dat_ve?: dat_veUncheckedCreateNestedManyWithoutNguoi_dungInput
+    lich_su_uu_dai?: lich_su_uu_daiUncheckedCreateNestedManyWithoutNguoi_dungInput
   }
 
   export type nguoi_dungUpdateInput = {
@@ -13045,6 +15494,7 @@ export namespace Prisma {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     dat_ve?: dat_veUpdateManyWithoutNguoi_dungNestedInput
+    lich_su_uu_dai?: lich_su_uu_daiUpdateManyWithoutNguoi_dungNestedInput
   }
 
   export type nguoi_dungUncheckedUpdateInput = {
@@ -13058,6 +15508,7 @@ export namespace Prisma {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     dat_ve?: dat_veUncheckedUpdateManyWithoutNguoi_dungNestedInput
+    lich_su_uu_dai?: lich_su_uu_daiUncheckedUpdateManyWithoutNguoi_dungNestedInput
   }
 
   export type nguoi_dungCreateManyInput = {
@@ -13292,6 +15743,149 @@ export namespace Prisma {
     ma_rap?: IntFieldUpdateOperationsInput | number
     ten_rap?: StringFieldUpdateOperationsInput | string
     ma_cum_rap?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type uu_daiCreateInput = {
+    tieu_de: string
+    ma_giam_gia: string
+    phan_tram_giam: number
+    mo_ta?: string | null
+    loai_uu_dai?: string
+    icon?: string
+    accent?: string
+    ngay_het_han: Date | string
+    is_deleted?: boolean
+    created_at?: Date | string
+    lich_su_uu_dai?: lich_su_uu_daiCreateNestedManyWithoutUu_daiInput
+  }
+
+  export type uu_daiUncheckedCreateInput = {
+    ma_uu_dai?: number
+    tieu_de: string
+    ma_giam_gia: string
+    phan_tram_giam: number
+    mo_ta?: string | null
+    loai_uu_dai?: string
+    icon?: string
+    accent?: string
+    ngay_het_han: Date | string
+    is_deleted?: boolean
+    created_at?: Date | string
+    lich_su_uu_dai?: lich_su_uu_daiUncheckedCreateNestedManyWithoutUu_daiInput
+  }
+
+  export type uu_daiUpdateInput = {
+    tieu_de?: StringFieldUpdateOperationsInput | string
+    ma_giam_gia?: StringFieldUpdateOperationsInput | string
+    phan_tram_giam?: IntFieldUpdateOperationsInput | number
+    mo_ta?: NullableStringFieldUpdateOperationsInput | string | null
+    loai_uu_dai?: StringFieldUpdateOperationsInput | string
+    icon?: StringFieldUpdateOperationsInput | string
+    accent?: StringFieldUpdateOperationsInput | string
+    ngay_het_han?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    lich_su_uu_dai?: lich_su_uu_daiUpdateManyWithoutUu_daiNestedInput
+  }
+
+  export type uu_daiUncheckedUpdateInput = {
+    ma_uu_dai?: IntFieldUpdateOperationsInput | number
+    tieu_de?: StringFieldUpdateOperationsInput | string
+    ma_giam_gia?: StringFieldUpdateOperationsInput | string
+    phan_tram_giam?: IntFieldUpdateOperationsInput | number
+    mo_ta?: NullableStringFieldUpdateOperationsInput | string | null
+    loai_uu_dai?: StringFieldUpdateOperationsInput | string
+    icon?: StringFieldUpdateOperationsInput | string
+    accent?: StringFieldUpdateOperationsInput | string
+    ngay_het_han?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    lich_su_uu_dai?: lich_su_uu_daiUncheckedUpdateManyWithoutUu_daiNestedInput
+  }
+
+  export type uu_daiCreateManyInput = {
+    ma_uu_dai?: number
+    tieu_de: string
+    ma_giam_gia: string
+    phan_tram_giam: number
+    mo_ta?: string | null
+    loai_uu_dai?: string
+    icon?: string
+    accent?: string
+    ngay_het_han: Date | string
+    is_deleted?: boolean
+    created_at?: Date | string
+  }
+
+  export type uu_daiUpdateManyMutationInput = {
+    tieu_de?: StringFieldUpdateOperationsInput | string
+    ma_giam_gia?: StringFieldUpdateOperationsInput | string
+    phan_tram_giam?: IntFieldUpdateOperationsInput | number
+    mo_ta?: NullableStringFieldUpdateOperationsInput | string | null
+    loai_uu_dai?: StringFieldUpdateOperationsInput | string
+    icon?: StringFieldUpdateOperationsInput | string
+    accent?: StringFieldUpdateOperationsInput | string
+    ngay_het_han?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type uu_daiUncheckedUpdateManyInput = {
+    ma_uu_dai?: IntFieldUpdateOperationsInput | number
+    tieu_de?: StringFieldUpdateOperationsInput | string
+    ma_giam_gia?: StringFieldUpdateOperationsInput | string
+    phan_tram_giam?: IntFieldUpdateOperationsInput | number
+    mo_ta?: NullableStringFieldUpdateOperationsInput | string | null
+    loai_uu_dai?: StringFieldUpdateOperationsInput | string
+    icon?: StringFieldUpdateOperationsInput | string
+    accent?: StringFieldUpdateOperationsInput | string
+    ngay_het_han?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type lich_su_uu_daiCreateInput = {
+    ngay_su_dung?: Date | string
+    uu_dai: uu_daiCreateNestedOneWithoutLich_su_uu_daiInput
+    nguoi_dung: nguoi_dungCreateNestedOneWithoutLich_su_uu_daiInput
+  }
+
+  export type lich_su_uu_daiUncheckedCreateInput = {
+    id?: number
+    tai_khoan: string
+    ma_uu_dai: number
+    ngay_su_dung?: Date | string
+  }
+
+  export type lich_su_uu_daiUpdateInput = {
+    ngay_su_dung?: DateTimeFieldUpdateOperationsInput | Date | string
+    uu_dai?: uu_daiUpdateOneRequiredWithoutLich_su_uu_daiNestedInput
+    nguoi_dung?: nguoi_dungUpdateOneRequiredWithoutLich_su_uu_daiNestedInput
+  }
+
+  export type lich_su_uu_daiUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    tai_khoan?: StringFieldUpdateOperationsInput | string
+    ma_uu_dai?: IntFieldUpdateOperationsInput | number
+    ngay_su_dung?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type lich_su_uu_daiCreateManyInput = {
+    id?: number
+    tai_khoan: string
+    ma_uu_dai: number
+    ngay_su_dung?: Date | string
+  }
+
+  export type lich_su_uu_daiUpdateManyMutationInput = {
+    ngay_su_dung?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type lich_su_uu_daiUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    tai_khoan?: StringFieldUpdateOperationsInput | string
+    ma_uu_dai?: IntFieldUpdateOperationsInput | number
+    ngay_su_dung?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -13734,6 +16328,16 @@ export namespace Prisma {
     gia_ve?: SortOrder
   }
 
+  export type Lich_su_uu_daiListRelationFilter = {
+    every?: lich_su_uu_daiWhereInput
+    some?: lich_su_uu_daiWhereInput
+    none?: lich_su_uu_daiWhereInput
+  }
+
+  export type lich_su_uu_daiOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type nguoi_dungOrderByRelevanceInput = {
     fields: nguoi_dungOrderByRelevanceFieldEnum | nguoi_dungOrderByRelevanceFieldEnum[]
     sort: SortOrder
@@ -13958,6 +16562,111 @@ export namespace Prisma {
 
   export type rap_phimSumOrderByAggregateInput = {
     ma_rap?: SortOrder
+  }
+
+  export type uu_daiOrderByRelevanceInput = {
+    fields: uu_daiOrderByRelevanceFieldEnum | uu_daiOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type uu_daiCountOrderByAggregateInput = {
+    ma_uu_dai?: SortOrder
+    tieu_de?: SortOrder
+    ma_giam_gia?: SortOrder
+    phan_tram_giam?: SortOrder
+    mo_ta?: SortOrder
+    loai_uu_dai?: SortOrder
+    icon?: SortOrder
+    accent?: SortOrder
+    ngay_het_han?: SortOrder
+    is_deleted?: SortOrder
+    created_at?: SortOrder
+  }
+
+  export type uu_daiAvgOrderByAggregateInput = {
+    ma_uu_dai?: SortOrder
+    phan_tram_giam?: SortOrder
+  }
+
+  export type uu_daiMaxOrderByAggregateInput = {
+    ma_uu_dai?: SortOrder
+    tieu_de?: SortOrder
+    ma_giam_gia?: SortOrder
+    phan_tram_giam?: SortOrder
+    mo_ta?: SortOrder
+    loai_uu_dai?: SortOrder
+    icon?: SortOrder
+    accent?: SortOrder
+    ngay_het_han?: SortOrder
+    is_deleted?: SortOrder
+    created_at?: SortOrder
+  }
+
+  export type uu_daiMinOrderByAggregateInput = {
+    ma_uu_dai?: SortOrder
+    tieu_de?: SortOrder
+    ma_giam_gia?: SortOrder
+    phan_tram_giam?: SortOrder
+    mo_ta?: SortOrder
+    loai_uu_dai?: SortOrder
+    icon?: SortOrder
+    accent?: SortOrder
+    ngay_het_han?: SortOrder
+    is_deleted?: SortOrder
+    created_at?: SortOrder
+  }
+
+  export type uu_daiSumOrderByAggregateInput = {
+    ma_uu_dai?: SortOrder
+    phan_tram_giam?: SortOrder
+  }
+
+  export type Uu_daiScalarRelationFilter = {
+    is?: uu_daiWhereInput
+    isNot?: uu_daiWhereInput
+  }
+
+  export type lich_su_uu_daiOrderByRelevanceInput = {
+    fields: lich_su_uu_daiOrderByRelevanceFieldEnum | lich_su_uu_daiOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type lich_su_uu_daiTai_khoanMa_uu_daiCompoundUniqueInput = {
+    tai_khoan: string
+    ma_uu_dai: number
+  }
+
+  export type lich_su_uu_daiCountOrderByAggregateInput = {
+    id?: SortOrder
+    tai_khoan?: SortOrder
+    ma_uu_dai?: SortOrder
+    ngay_su_dung?: SortOrder
+  }
+
+  export type lich_su_uu_daiAvgOrderByAggregateInput = {
+    id?: SortOrder
+    ma_uu_dai?: SortOrder
+  }
+
+  export type lich_su_uu_daiMaxOrderByAggregateInput = {
+    id?: SortOrder
+    tai_khoan?: SortOrder
+    ma_uu_dai?: SortOrder
+    ngay_su_dung?: SortOrder
+  }
+
+  export type lich_su_uu_daiMinOrderByAggregateInput = {
+    id?: SortOrder
+    tai_khoan?: SortOrder
+    ma_uu_dai?: SortOrder
+    ngay_su_dung?: SortOrder
+  }
+
+  export type lich_su_uu_daiSumOrderByAggregateInput = {
+    id?: SortOrder
+    ma_uu_dai?: SortOrder
   }
 
   export type phimCreateNestedOneWithoutBannerInput = {
@@ -14267,11 +16976,25 @@ export namespace Prisma {
     connect?: dat_veWhereUniqueInput | dat_veWhereUniqueInput[]
   }
 
+  export type lich_su_uu_daiCreateNestedManyWithoutNguoi_dungInput = {
+    create?: XOR<lich_su_uu_daiCreateWithoutNguoi_dungInput, lich_su_uu_daiUncheckedCreateWithoutNguoi_dungInput> | lich_su_uu_daiCreateWithoutNguoi_dungInput[] | lich_su_uu_daiUncheckedCreateWithoutNguoi_dungInput[]
+    connectOrCreate?: lich_su_uu_daiCreateOrConnectWithoutNguoi_dungInput | lich_su_uu_daiCreateOrConnectWithoutNguoi_dungInput[]
+    createMany?: lich_su_uu_daiCreateManyNguoi_dungInputEnvelope
+    connect?: lich_su_uu_daiWhereUniqueInput | lich_su_uu_daiWhereUniqueInput[]
+  }
+
   export type dat_veUncheckedCreateNestedManyWithoutNguoi_dungInput = {
     create?: XOR<dat_veCreateWithoutNguoi_dungInput, dat_veUncheckedCreateWithoutNguoi_dungInput> | dat_veCreateWithoutNguoi_dungInput[] | dat_veUncheckedCreateWithoutNguoi_dungInput[]
     connectOrCreate?: dat_veCreateOrConnectWithoutNguoi_dungInput | dat_veCreateOrConnectWithoutNguoi_dungInput[]
     createMany?: dat_veCreateManyNguoi_dungInputEnvelope
     connect?: dat_veWhereUniqueInput | dat_veWhereUniqueInput[]
+  }
+
+  export type lich_su_uu_daiUncheckedCreateNestedManyWithoutNguoi_dungInput = {
+    create?: XOR<lich_su_uu_daiCreateWithoutNguoi_dungInput, lich_su_uu_daiUncheckedCreateWithoutNguoi_dungInput> | lich_su_uu_daiCreateWithoutNguoi_dungInput[] | lich_su_uu_daiUncheckedCreateWithoutNguoi_dungInput[]
+    connectOrCreate?: lich_su_uu_daiCreateOrConnectWithoutNguoi_dungInput | lich_su_uu_daiCreateOrConnectWithoutNguoi_dungInput[]
+    createMany?: lich_su_uu_daiCreateManyNguoi_dungInputEnvelope
+    connect?: lich_su_uu_daiWhereUniqueInput | lich_su_uu_daiWhereUniqueInput[]
   }
 
   export type dat_veUpdateManyWithoutNguoi_dungNestedInput = {
@@ -14288,6 +17011,20 @@ export namespace Prisma {
     deleteMany?: dat_veScalarWhereInput | dat_veScalarWhereInput[]
   }
 
+  export type lich_su_uu_daiUpdateManyWithoutNguoi_dungNestedInput = {
+    create?: XOR<lich_su_uu_daiCreateWithoutNguoi_dungInput, lich_su_uu_daiUncheckedCreateWithoutNguoi_dungInput> | lich_su_uu_daiCreateWithoutNguoi_dungInput[] | lich_su_uu_daiUncheckedCreateWithoutNguoi_dungInput[]
+    connectOrCreate?: lich_su_uu_daiCreateOrConnectWithoutNguoi_dungInput | lich_su_uu_daiCreateOrConnectWithoutNguoi_dungInput[]
+    upsert?: lich_su_uu_daiUpsertWithWhereUniqueWithoutNguoi_dungInput | lich_su_uu_daiUpsertWithWhereUniqueWithoutNguoi_dungInput[]
+    createMany?: lich_su_uu_daiCreateManyNguoi_dungInputEnvelope
+    set?: lich_su_uu_daiWhereUniqueInput | lich_su_uu_daiWhereUniqueInput[]
+    disconnect?: lich_su_uu_daiWhereUniqueInput | lich_su_uu_daiWhereUniqueInput[]
+    delete?: lich_su_uu_daiWhereUniqueInput | lich_su_uu_daiWhereUniqueInput[]
+    connect?: lich_su_uu_daiWhereUniqueInput | lich_su_uu_daiWhereUniqueInput[]
+    update?: lich_su_uu_daiUpdateWithWhereUniqueWithoutNguoi_dungInput | lich_su_uu_daiUpdateWithWhereUniqueWithoutNguoi_dungInput[]
+    updateMany?: lich_su_uu_daiUpdateManyWithWhereWithoutNguoi_dungInput | lich_su_uu_daiUpdateManyWithWhereWithoutNguoi_dungInput[]
+    deleteMany?: lich_su_uu_daiScalarWhereInput | lich_su_uu_daiScalarWhereInput[]
+  }
+
   export type dat_veUncheckedUpdateManyWithoutNguoi_dungNestedInput = {
     create?: XOR<dat_veCreateWithoutNguoi_dungInput, dat_veUncheckedCreateWithoutNguoi_dungInput> | dat_veCreateWithoutNguoi_dungInput[] | dat_veUncheckedCreateWithoutNguoi_dungInput[]
     connectOrCreate?: dat_veCreateOrConnectWithoutNguoi_dungInput | dat_veCreateOrConnectWithoutNguoi_dungInput[]
@@ -14300,6 +17037,20 @@ export namespace Prisma {
     update?: dat_veUpdateWithWhereUniqueWithoutNguoi_dungInput | dat_veUpdateWithWhereUniqueWithoutNguoi_dungInput[]
     updateMany?: dat_veUpdateManyWithWhereWithoutNguoi_dungInput | dat_veUpdateManyWithWhereWithoutNguoi_dungInput[]
     deleteMany?: dat_veScalarWhereInput | dat_veScalarWhereInput[]
+  }
+
+  export type lich_su_uu_daiUncheckedUpdateManyWithoutNguoi_dungNestedInput = {
+    create?: XOR<lich_su_uu_daiCreateWithoutNguoi_dungInput, lich_su_uu_daiUncheckedCreateWithoutNguoi_dungInput> | lich_su_uu_daiCreateWithoutNguoi_dungInput[] | lich_su_uu_daiUncheckedCreateWithoutNguoi_dungInput[]
+    connectOrCreate?: lich_su_uu_daiCreateOrConnectWithoutNguoi_dungInput | lich_su_uu_daiCreateOrConnectWithoutNguoi_dungInput[]
+    upsert?: lich_su_uu_daiUpsertWithWhereUniqueWithoutNguoi_dungInput | lich_su_uu_daiUpsertWithWhereUniqueWithoutNguoi_dungInput[]
+    createMany?: lich_su_uu_daiCreateManyNguoi_dungInputEnvelope
+    set?: lich_su_uu_daiWhereUniqueInput | lich_su_uu_daiWhereUniqueInput[]
+    disconnect?: lich_su_uu_daiWhereUniqueInput | lich_su_uu_daiWhereUniqueInput[]
+    delete?: lich_su_uu_daiWhereUniqueInput | lich_su_uu_daiWhereUniqueInput[]
+    connect?: lich_su_uu_daiWhereUniqueInput | lich_su_uu_daiWhereUniqueInput[]
+    update?: lich_su_uu_daiUpdateWithWhereUniqueWithoutNguoi_dungInput | lich_su_uu_daiUpdateWithWhereUniqueWithoutNguoi_dungInput[]
+    updateMany?: lich_su_uu_daiUpdateManyWithWhereWithoutNguoi_dungInput | lich_su_uu_daiUpdateManyWithWhereWithoutNguoi_dungInput[]
+    deleteMany?: lich_su_uu_daiScalarWhereInput | lich_su_uu_daiScalarWhereInput[]
   }
 
   export type bannerCreateNestedManyWithoutPhimInput = {
@@ -14490,6 +17241,76 @@ export namespace Prisma {
     update?: lich_chieuUpdateWithWhereUniqueWithoutRap_phimInput | lich_chieuUpdateWithWhereUniqueWithoutRap_phimInput[]
     updateMany?: lich_chieuUpdateManyWithWhereWithoutRap_phimInput | lich_chieuUpdateManyWithWhereWithoutRap_phimInput[]
     deleteMany?: lich_chieuScalarWhereInput | lich_chieuScalarWhereInput[]
+  }
+
+  export type lich_su_uu_daiCreateNestedManyWithoutUu_daiInput = {
+    create?: XOR<lich_su_uu_daiCreateWithoutUu_daiInput, lich_su_uu_daiUncheckedCreateWithoutUu_daiInput> | lich_su_uu_daiCreateWithoutUu_daiInput[] | lich_su_uu_daiUncheckedCreateWithoutUu_daiInput[]
+    connectOrCreate?: lich_su_uu_daiCreateOrConnectWithoutUu_daiInput | lich_su_uu_daiCreateOrConnectWithoutUu_daiInput[]
+    createMany?: lich_su_uu_daiCreateManyUu_daiInputEnvelope
+    connect?: lich_su_uu_daiWhereUniqueInput | lich_su_uu_daiWhereUniqueInput[]
+  }
+
+  export type lich_su_uu_daiUncheckedCreateNestedManyWithoutUu_daiInput = {
+    create?: XOR<lich_su_uu_daiCreateWithoutUu_daiInput, lich_su_uu_daiUncheckedCreateWithoutUu_daiInput> | lich_su_uu_daiCreateWithoutUu_daiInput[] | lich_su_uu_daiUncheckedCreateWithoutUu_daiInput[]
+    connectOrCreate?: lich_su_uu_daiCreateOrConnectWithoutUu_daiInput | lich_su_uu_daiCreateOrConnectWithoutUu_daiInput[]
+    createMany?: lich_su_uu_daiCreateManyUu_daiInputEnvelope
+    connect?: lich_su_uu_daiWhereUniqueInput | lich_su_uu_daiWhereUniqueInput[]
+  }
+
+  export type lich_su_uu_daiUpdateManyWithoutUu_daiNestedInput = {
+    create?: XOR<lich_su_uu_daiCreateWithoutUu_daiInput, lich_su_uu_daiUncheckedCreateWithoutUu_daiInput> | lich_su_uu_daiCreateWithoutUu_daiInput[] | lich_su_uu_daiUncheckedCreateWithoutUu_daiInput[]
+    connectOrCreate?: lich_su_uu_daiCreateOrConnectWithoutUu_daiInput | lich_su_uu_daiCreateOrConnectWithoutUu_daiInput[]
+    upsert?: lich_su_uu_daiUpsertWithWhereUniqueWithoutUu_daiInput | lich_su_uu_daiUpsertWithWhereUniqueWithoutUu_daiInput[]
+    createMany?: lich_su_uu_daiCreateManyUu_daiInputEnvelope
+    set?: lich_su_uu_daiWhereUniqueInput | lich_su_uu_daiWhereUniqueInput[]
+    disconnect?: lich_su_uu_daiWhereUniqueInput | lich_su_uu_daiWhereUniqueInput[]
+    delete?: lich_su_uu_daiWhereUniqueInput | lich_su_uu_daiWhereUniqueInput[]
+    connect?: lich_su_uu_daiWhereUniqueInput | lich_su_uu_daiWhereUniqueInput[]
+    update?: lich_su_uu_daiUpdateWithWhereUniqueWithoutUu_daiInput | lich_su_uu_daiUpdateWithWhereUniqueWithoutUu_daiInput[]
+    updateMany?: lich_su_uu_daiUpdateManyWithWhereWithoutUu_daiInput | lich_su_uu_daiUpdateManyWithWhereWithoutUu_daiInput[]
+    deleteMany?: lich_su_uu_daiScalarWhereInput | lich_su_uu_daiScalarWhereInput[]
+  }
+
+  export type lich_su_uu_daiUncheckedUpdateManyWithoutUu_daiNestedInput = {
+    create?: XOR<lich_su_uu_daiCreateWithoutUu_daiInput, lich_su_uu_daiUncheckedCreateWithoutUu_daiInput> | lich_su_uu_daiCreateWithoutUu_daiInput[] | lich_su_uu_daiUncheckedCreateWithoutUu_daiInput[]
+    connectOrCreate?: lich_su_uu_daiCreateOrConnectWithoutUu_daiInput | lich_su_uu_daiCreateOrConnectWithoutUu_daiInput[]
+    upsert?: lich_su_uu_daiUpsertWithWhereUniqueWithoutUu_daiInput | lich_su_uu_daiUpsertWithWhereUniqueWithoutUu_daiInput[]
+    createMany?: lich_su_uu_daiCreateManyUu_daiInputEnvelope
+    set?: lich_su_uu_daiWhereUniqueInput | lich_su_uu_daiWhereUniqueInput[]
+    disconnect?: lich_su_uu_daiWhereUniqueInput | lich_su_uu_daiWhereUniqueInput[]
+    delete?: lich_su_uu_daiWhereUniqueInput | lich_su_uu_daiWhereUniqueInput[]
+    connect?: lich_su_uu_daiWhereUniqueInput | lich_su_uu_daiWhereUniqueInput[]
+    update?: lich_su_uu_daiUpdateWithWhereUniqueWithoutUu_daiInput | lich_su_uu_daiUpdateWithWhereUniqueWithoutUu_daiInput[]
+    updateMany?: lich_su_uu_daiUpdateManyWithWhereWithoutUu_daiInput | lich_su_uu_daiUpdateManyWithWhereWithoutUu_daiInput[]
+    deleteMany?: lich_su_uu_daiScalarWhereInput | lich_su_uu_daiScalarWhereInput[]
+  }
+
+  export type uu_daiCreateNestedOneWithoutLich_su_uu_daiInput = {
+    create?: XOR<uu_daiCreateWithoutLich_su_uu_daiInput, uu_daiUncheckedCreateWithoutLich_su_uu_daiInput>
+    connectOrCreate?: uu_daiCreateOrConnectWithoutLich_su_uu_daiInput
+    connect?: uu_daiWhereUniqueInput
+  }
+
+  export type nguoi_dungCreateNestedOneWithoutLich_su_uu_daiInput = {
+    create?: XOR<nguoi_dungCreateWithoutLich_su_uu_daiInput, nguoi_dungUncheckedCreateWithoutLich_su_uu_daiInput>
+    connectOrCreate?: nguoi_dungCreateOrConnectWithoutLich_su_uu_daiInput
+    connect?: nguoi_dungWhereUniqueInput
+  }
+
+  export type uu_daiUpdateOneRequiredWithoutLich_su_uu_daiNestedInput = {
+    create?: XOR<uu_daiCreateWithoutLich_su_uu_daiInput, uu_daiUncheckedCreateWithoutLich_su_uu_daiInput>
+    connectOrCreate?: uu_daiCreateOrConnectWithoutLich_su_uu_daiInput
+    upsert?: uu_daiUpsertWithoutLich_su_uu_daiInput
+    connect?: uu_daiWhereUniqueInput
+    update?: XOR<XOR<uu_daiUpdateToOneWithWhereWithoutLich_su_uu_daiInput, uu_daiUpdateWithoutLich_su_uu_daiInput>, uu_daiUncheckedUpdateWithoutLich_su_uu_daiInput>
+  }
+
+  export type nguoi_dungUpdateOneRequiredWithoutLich_su_uu_daiNestedInput = {
+    create?: XOR<nguoi_dungCreateWithoutLich_su_uu_daiInput, nguoi_dungUncheckedCreateWithoutLich_su_uu_daiInput>
+    connectOrCreate?: nguoi_dungCreateOrConnectWithoutLich_su_uu_daiInput
+    upsert?: nguoi_dungUpsertWithoutLich_su_uu_daiInput
+    connect?: nguoi_dungWhereUniqueInput
+    update?: XOR<XOR<nguoi_dungUpdateToOneWithWhereWithoutLich_su_uu_daiInput, nguoi_dungUpdateWithoutLich_su_uu_daiInput>, nguoi_dungUncheckedUpdateWithoutLich_su_uu_daiInput>
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -14908,6 +17729,7 @@ export namespace Prisma {
     ma_nhom?: string
     created_at?: Date | string
     updated_at?: Date | string
+    lich_su_uu_dai?: lich_su_uu_daiCreateNestedManyWithoutNguoi_dungInput
   }
 
   export type nguoi_dungUncheckedCreateWithoutDat_veInput = {
@@ -14920,6 +17742,7 @@ export namespace Prisma {
     ma_nhom?: string
     created_at?: Date | string
     updated_at?: Date | string
+    lich_su_uu_dai?: lich_su_uu_daiUncheckedCreateNestedManyWithoutNguoi_dungInput
   }
 
   export type nguoi_dungCreateOrConnectWithoutDat_veInput = {
@@ -14998,6 +17821,7 @@ export namespace Prisma {
     ma_nhom?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    lich_su_uu_dai?: lich_su_uu_daiUpdateManyWithoutNguoi_dungNestedInput
   }
 
   export type nguoi_dungUncheckedUpdateWithoutDat_veInput = {
@@ -15010,6 +17834,7 @@ export namespace Prisma {
     ma_nhom?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    lich_su_uu_dai?: lich_su_uu_daiUncheckedUpdateManyWithoutNguoi_dungNestedInput
   }
 
   export type dat_veCreateWithoutGheInput = {
@@ -15360,6 +18185,27 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type lich_su_uu_daiCreateWithoutNguoi_dungInput = {
+    ngay_su_dung?: Date | string
+    uu_dai: uu_daiCreateNestedOneWithoutLich_su_uu_daiInput
+  }
+
+  export type lich_su_uu_daiUncheckedCreateWithoutNguoi_dungInput = {
+    id?: number
+    ma_uu_dai: number
+    ngay_su_dung?: Date | string
+  }
+
+  export type lich_su_uu_daiCreateOrConnectWithoutNguoi_dungInput = {
+    where: lich_su_uu_daiWhereUniqueInput
+    create: XOR<lich_su_uu_daiCreateWithoutNguoi_dungInput, lich_su_uu_daiUncheckedCreateWithoutNguoi_dungInput>
+  }
+
+  export type lich_su_uu_daiCreateManyNguoi_dungInputEnvelope = {
+    data: lich_su_uu_daiCreateManyNguoi_dungInput | lich_su_uu_daiCreateManyNguoi_dungInput[]
+    skipDuplicates?: boolean
+  }
+
   export type dat_veUpsertWithWhereUniqueWithoutNguoi_dungInput = {
     where: dat_veWhereUniqueInput
     update: XOR<dat_veUpdateWithoutNguoi_dungInput, dat_veUncheckedUpdateWithoutNguoi_dungInput>
@@ -15374,6 +18220,32 @@ export namespace Prisma {
   export type dat_veUpdateManyWithWhereWithoutNguoi_dungInput = {
     where: dat_veScalarWhereInput
     data: XOR<dat_veUpdateManyMutationInput, dat_veUncheckedUpdateManyWithoutNguoi_dungInput>
+  }
+
+  export type lich_su_uu_daiUpsertWithWhereUniqueWithoutNguoi_dungInput = {
+    where: lich_su_uu_daiWhereUniqueInput
+    update: XOR<lich_su_uu_daiUpdateWithoutNguoi_dungInput, lich_su_uu_daiUncheckedUpdateWithoutNguoi_dungInput>
+    create: XOR<lich_su_uu_daiCreateWithoutNguoi_dungInput, lich_su_uu_daiUncheckedCreateWithoutNguoi_dungInput>
+  }
+
+  export type lich_su_uu_daiUpdateWithWhereUniqueWithoutNguoi_dungInput = {
+    where: lich_su_uu_daiWhereUniqueInput
+    data: XOR<lich_su_uu_daiUpdateWithoutNguoi_dungInput, lich_su_uu_daiUncheckedUpdateWithoutNguoi_dungInput>
+  }
+
+  export type lich_su_uu_daiUpdateManyWithWhereWithoutNguoi_dungInput = {
+    where: lich_su_uu_daiScalarWhereInput
+    data: XOR<lich_su_uu_daiUpdateManyMutationInput, lich_su_uu_daiUncheckedUpdateManyWithoutNguoi_dungInput>
+  }
+
+  export type lich_su_uu_daiScalarWhereInput = {
+    AND?: lich_su_uu_daiScalarWhereInput | lich_su_uu_daiScalarWhereInput[]
+    OR?: lich_su_uu_daiScalarWhereInput[]
+    NOT?: lich_su_uu_daiScalarWhereInput | lich_su_uu_daiScalarWhereInput[]
+    id?: IntFilter<"lich_su_uu_dai"> | number
+    tai_khoan?: StringFilter<"lich_su_uu_dai"> | string
+    ma_uu_dai?: IntFilter<"lich_su_uu_dai"> | number
+    ngay_su_dung?: DateTimeFilter<"lich_su_uu_dai"> | Date | string
   }
 
   export type bannerCreateWithoutPhimInput = {
@@ -15606,6 +18478,181 @@ export namespace Prisma {
     ma_he_thong_rap?: StringFieldUpdateOperationsInput | string
   }
 
+  export type lich_su_uu_daiCreateWithoutUu_daiInput = {
+    ngay_su_dung?: Date | string
+    nguoi_dung: nguoi_dungCreateNestedOneWithoutLich_su_uu_daiInput
+  }
+
+  export type lich_su_uu_daiUncheckedCreateWithoutUu_daiInput = {
+    id?: number
+    tai_khoan: string
+    ngay_su_dung?: Date | string
+  }
+
+  export type lich_su_uu_daiCreateOrConnectWithoutUu_daiInput = {
+    where: lich_su_uu_daiWhereUniqueInput
+    create: XOR<lich_su_uu_daiCreateWithoutUu_daiInput, lich_su_uu_daiUncheckedCreateWithoutUu_daiInput>
+  }
+
+  export type lich_su_uu_daiCreateManyUu_daiInputEnvelope = {
+    data: lich_su_uu_daiCreateManyUu_daiInput | lich_su_uu_daiCreateManyUu_daiInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type lich_su_uu_daiUpsertWithWhereUniqueWithoutUu_daiInput = {
+    where: lich_su_uu_daiWhereUniqueInput
+    update: XOR<lich_su_uu_daiUpdateWithoutUu_daiInput, lich_su_uu_daiUncheckedUpdateWithoutUu_daiInput>
+    create: XOR<lich_su_uu_daiCreateWithoutUu_daiInput, lich_su_uu_daiUncheckedCreateWithoutUu_daiInput>
+  }
+
+  export type lich_su_uu_daiUpdateWithWhereUniqueWithoutUu_daiInput = {
+    where: lich_su_uu_daiWhereUniqueInput
+    data: XOR<lich_su_uu_daiUpdateWithoutUu_daiInput, lich_su_uu_daiUncheckedUpdateWithoutUu_daiInput>
+  }
+
+  export type lich_su_uu_daiUpdateManyWithWhereWithoutUu_daiInput = {
+    where: lich_su_uu_daiScalarWhereInput
+    data: XOR<lich_su_uu_daiUpdateManyMutationInput, lich_su_uu_daiUncheckedUpdateManyWithoutUu_daiInput>
+  }
+
+  export type uu_daiCreateWithoutLich_su_uu_daiInput = {
+    tieu_de: string
+    ma_giam_gia: string
+    phan_tram_giam: number
+    mo_ta?: string | null
+    loai_uu_dai?: string
+    icon?: string
+    accent?: string
+    ngay_het_han: Date | string
+    is_deleted?: boolean
+    created_at?: Date | string
+  }
+
+  export type uu_daiUncheckedCreateWithoutLich_su_uu_daiInput = {
+    ma_uu_dai?: number
+    tieu_de: string
+    ma_giam_gia: string
+    phan_tram_giam: number
+    mo_ta?: string | null
+    loai_uu_dai?: string
+    icon?: string
+    accent?: string
+    ngay_het_han: Date | string
+    is_deleted?: boolean
+    created_at?: Date | string
+  }
+
+  export type uu_daiCreateOrConnectWithoutLich_su_uu_daiInput = {
+    where: uu_daiWhereUniqueInput
+    create: XOR<uu_daiCreateWithoutLich_su_uu_daiInput, uu_daiUncheckedCreateWithoutLich_su_uu_daiInput>
+  }
+
+  export type nguoi_dungCreateWithoutLich_su_uu_daiInput = {
+    tai_khoan: string
+    ho_ten: string
+    email: string
+    so_dt: string
+    mat_khau: string
+    loai_nguoi_dung?: string
+    ma_nhom?: string
+    created_at?: Date | string
+    updated_at?: Date | string
+    dat_ve?: dat_veCreateNestedManyWithoutNguoi_dungInput
+  }
+
+  export type nguoi_dungUncheckedCreateWithoutLich_su_uu_daiInput = {
+    tai_khoan: string
+    ho_ten: string
+    email: string
+    so_dt: string
+    mat_khau: string
+    loai_nguoi_dung?: string
+    ma_nhom?: string
+    created_at?: Date | string
+    updated_at?: Date | string
+    dat_ve?: dat_veUncheckedCreateNestedManyWithoutNguoi_dungInput
+  }
+
+  export type nguoi_dungCreateOrConnectWithoutLich_su_uu_daiInput = {
+    where: nguoi_dungWhereUniqueInput
+    create: XOR<nguoi_dungCreateWithoutLich_su_uu_daiInput, nguoi_dungUncheckedCreateWithoutLich_su_uu_daiInput>
+  }
+
+  export type uu_daiUpsertWithoutLich_su_uu_daiInput = {
+    update: XOR<uu_daiUpdateWithoutLich_su_uu_daiInput, uu_daiUncheckedUpdateWithoutLich_su_uu_daiInput>
+    create: XOR<uu_daiCreateWithoutLich_su_uu_daiInput, uu_daiUncheckedCreateWithoutLich_su_uu_daiInput>
+    where?: uu_daiWhereInput
+  }
+
+  export type uu_daiUpdateToOneWithWhereWithoutLich_su_uu_daiInput = {
+    where?: uu_daiWhereInput
+    data: XOR<uu_daiUpdateWithoutLich_su_uu_daiInput, uu_daiUncheckedUpdateWithoutLich_su_uu_daiInput>
+  }
+
+  export type uu_daiUpdateWithoutLich_su_uu_daiInput = {
+    tieu_de?: StringFieldUpdateOperationsInput | string
+    ma_giam_gia?: StringFieldUpdateOperationsInput | string
+    phan_tram_giam?: IntFieldUpdateOperationsInput | number
+    mo_ta?: NullableStringFieldUpdateOperationsInput | string | null
+    loai_uu_dai?: StringFieldUpdateOperationsInput | string
+    icon?: StringFieldUpdateOperationsInput | string
+    accent?: StringFieldUpdateOperationsInput | string
+    ngay_het_han?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type uu_daiUncheckedUpdateWithoutLich_su_uu_daiInput = {
+    ma_uu_dai?: IntFieldUpdateOperationsInput | number
+    tieu_de?: StringFieldUpdateOperationsInput | string
+    ma_giam_gia?: StringFieldUpdateOperationsInput | string
+    phan_tram_giam?: IntFieldUpdateOperationsInput | number
+    mo_ta?: NullableStringFieldUpdateOperationsInput | string | null
+    loai_uu_dai?: StringFieldUpdateOperationsInput | string
+    icon?: StringFieldUpdateOperationsInput | string
+    accent?: StringFieldUpdateOperationsInput | string
+    ngay_het_han?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type nguoi_dungUpsertWithoutLich_su_uu_daiInput = {
+    update: XOR<nguoi_dungUpdateWithoutLich_su_uu_daiInput, nguoi_dungUncheckedUpdateWithoutLich_su_uu_daiInput>
+    create: XOR<nguoi_dungCreateWithoutLich_su_uu_daiInput, nguoi_dungUncheckedCreateWithoutLich_su_uu_daiInput>
+    where?: nguoi_dungWhereInput
+  }
+
+  export type nguoi_dungUpdateToOneWithWhereWithoutLich_su_uu_daiInput = {
+    where?: nguoi_dungWhereInput
+    data: XOR<nguoi_dungUpdateWithoutLich_su_uu_daiInput, nguoi_dungUncheckedUpdateWithoutLich_su_uu_daiInput>
+  }
+
+  export type nguoi_dungUpdateWithoutLich_su_uu_daiInput = {
+    tai_khoan?: StringFieldUpdateOperationsInput | string
+    ho_ten?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    so_dt?: StringFieldUpdateOperationsInput | string
+    mat_khau?: StringFieldUpdateOperationsInput | string
+    loai_nguoi_dung?: StringFieldUpdateOperationsInput | string
+    ma_nhom?: StringFieldUpdateOperationsInput | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    dat_ve?: dat_veUpdateManyWithoutNguoi_dungNestedInput
+  }
+
+  export type nguoi_dungUncheckedUpdateWithoutLich_su_uu_daiInput = {
+    tai_khoan?: StringFieldUpdateOperationsInput | string
+    ho_ten?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    so_dt?: StringFieldUpdateOperationsInput | string
+    mat_khau?: StringFieldUpdateOperationsInput | string
+    loai_nguoi_dung?: StringFieldUpdateOperationsInput | string
+    ma_nhom?: StringFieldUpdateOperationsInput | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    dat_ve?: dat_veUncheckedUpdateManyWithoutNguoi_dungNestedInput
+  }
+
   export type rap_phimCreateManyCum_rapInput = {
     ma_rap?: number
     ten_rap: string
@@ -15716,6 +18763,12 @@ export namespace Prisma {
     ngay_dat?: Date | string
   }
 
+  export type lich_su_uu_daiCreateManyNguoi_dungInput = {
+    id?: number
+    ma_uu_dai: number
+    ngay_su_dung?: Date | string
+  }
+
   export type dat_veUpdateWithoutNguoi_dungInput = {
     ngay_dat?: DateTimeFieldUpdateOperationsInput | Date | string
     ghe?: gheUpdateOneRequiredWithoutDat_veNestedInput
@@ -15734,6 +18787,23 @@ export namespace Prisma {
     ma_lich_chieu?: IntFieldUpdateOperationsInput | number
     ma_ghe?: IntFieldUpdateOperationsInput | number
     ngay_dat?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type lich_su_uu_daiUpdateWithoutNguoi_dungInput = {
+    ngay_su_dung?: DateTimeFieldUpdateOperationsInput | Date | string
+    uu_dai?: uu_daiUpdateOneRequiredWithoutLich_su_uu_daiNestedInput
+  }
+
+  export type lich_su_uu_daiUncheckedUpdateWithoutNguoi_dungInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    ma_uu_dai?: IntFieldUpdateOperationsInput | number
+    ngay_su_dung?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type lich_su_uu_daiUncheckedUpdateManyWithoutNguoi_dungInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    ma_uu_dai?: IntFieldUpdateOperationsInput | number
+    ngay_su_dung?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type bannerCreateManyPhimInput = {
@@ -15836,6 +18906,29 @@ export namespace Prisma {
     ma_phim?: IntFieldUpdateOperationsInput | number
     ngay_gio_chieu?: DateTimeFieldUpdateOperationsInput | Date | string
     gia_ve?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type lich_su_uu_daiCreateManyUu_daiInput = {
+    id?: number
+    tai_khoan: string
+    ngay_su_dung?: Date | string
+  }
+
+  export type lich_su_uu_daiUpdateWithoutUu_daiInput = {
+    ngay_su_dung?: DateTimeFieldUpdateOperationsInput | Date | string
+    nguoi_dung?: nguoi_dungUpdateOneRequiredWithoutLich_su_uu_daiNestedInput
+  }
+
+  export type lich_su_uu_daiUncheckedUpdateWithoutUu_daiInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    tai_khoan?: StringFieldUpdateOperationsInput | string
+    ngay_su_dung?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type lich_su_uu_daiUncheckedUpdateManyWithoutUu_daiInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    tai_khoan?: StringFieldUpdateOperationsInput | string
+    ngay_su_dung?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
 

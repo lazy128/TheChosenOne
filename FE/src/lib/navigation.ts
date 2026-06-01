@@ -9,10 +9,10 @@ export function goBackOrHome(router: AnyRouter, fallbackTo = "/" as const) {
   router.navigate({ to: fallbackTo });
 }
 
-type BrowseDispatch = { type: "GO_BROWSE" } | { type: "RESET" } | { type: string };
+type BrowseDispatch = { type: "GO_BROWSE" } | { type: "RESET" };
 
 /** Sau thanh toán xong — về trang chọn phim, state sạch. */
-export function startNewBooking(dispatch: (action: BrowseDispatch) => void) {
+export function startNewBooking(dispatch: (action: { type: "RESET" }) => void) {
   dispatch({ type: "RESET" });
   window.dispatchEvent(new CustomEvent("cinemax:new-booking"));
   window.dispatchEvent(new CustomEvent("cinemax:set-tab", { detail: "Now Showing" }));

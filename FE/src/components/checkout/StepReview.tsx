@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Ticket } from "lucide-react";
 import type { OfferMeta } from "@/data/offers";
+import type { UuDai } from "@/lib/cinema-api";
 import { useBooking } from "@/context/BookingContext";
 import { useLocale } from "@/context/LocaleContext";
 import { calcBookingSubtotalUsd } from "@/lib/booking-total";
@@ -10,7 +11,7 @@ export function StepReview({
   appliedOffer,
   onConfirm,
 }: {
-  appliedOffer?: OfferMeta;
+  appliedOffer?: OfferMeta | UuDai;
   onConfirm: () => void;
 }) {
   const { state } = useBooking();
