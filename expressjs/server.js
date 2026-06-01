@@ -22,6 +22,7 @@ app.use(helmet({
 
 // 2. Strict CORS
 const defaultAllowedOrigins = [
+  "https://the-chosen-one-plum.vercel.app",
   "http://localhost:5173",
   "http://localhost:3000",
   "http://127.0.0.1:5173",
