@@ -1,5 +1,6 @@
 import { prisma } from "../common/prisma/connect.prisma.js";
 import { BadRequestException, NotfoundException } from "../common/helpers/exception.helper.js";
+import { uploadToCloudinary } from "../common/cloudinary/cloudinary.helper.js";
 
 function mapPhim(item) {
   const status = item.dang_chieu ? "now_showing" : "coming_soon";
@@ -129,7 +130,12 @@ export const quanLyPhimService = {
 
   async ThemPhimUploadHinh(req) {
     const { tenPhim, trailer, moTa, maNhom, ngayKhoiChieu, danhGia, hot, dangChieu, sapChieu, theLoai } = req.body;
-    const hinhAnh = req.file?.path || req.body.hinhAnh || null;
+
+    let hinhAnh = req.body.hinhAnh || "";
+    if (req.file) {
+      const result = await uploadToCloudinary(req.file.buffer, "movies");
+      hinhAnh = result.secure_url;
+    }
 
     const created = await prisma.phim.create({
       data: {
@@ -158,12 +164,18 @@ export const quanLyPhimService = {
     const current = await prisma.phim.findUnique({ where: { ma_phim: maPhim } });
     if (!current || current.is_deleted) throw new NotfoundException("Phim không tồn tại");
 
+    let hinhAnhUrl = req.body.hinhAnh || current.hinh_anh;
+    if (req.file) {
+      const result = await uploadToCloudinary(req.file.buffer, "movies");
+      hinhAnhUrl = result.secure_url;
+    }
+
     const updated = await prisma.phim.update({
       where: { ma_phim: maPhim },
       data: {
         ten_phim: req.body.tenPhim ?? current.ten_phim,
         trailer: req.body.trailer ?? current.trailer,
-        hinh_anh: req.file?.path || req.body.hinhAnh || current.hinh_anh,
+        hinh_anh: hinhAnhUrl,
         mo_ta: req.body.moTa ?? current.mo_ta,
         ma_nhom: req.body.maNhom ?? current.ma_nhom,
         ngay_khoi_chieu: req.body.ngayKhoiChieu ? new Date(req.body.ngayKhoiChieu) : current.ngay_khoi_chieu,
