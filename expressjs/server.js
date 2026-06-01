@@ -67,23 +67,28 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-// 3. Rate Limiting with Redis
-const redisClient = createClient({
-  url: process.env.REDIS_URL || "redis://127.0.0.1:6380"
-});
-redisClient.connect().catch(err => console.error("Redis Connection Error:", err));
-
+// 3. Rate Limiting (Redis only if REDIS_URL is provided)
 app.set('trust proxy', 1); // Trust reverse proxy
 
-const limiter = rateLimit({
+const limiterOptions = {
   windowMs: 15 * 60 * 1000, // 15 minutes
   max: 3000, // Tăng limit lên 3000 để Frontend thoải mái gọi API trong lúc code/test
   standardHeaders: true,
   legacyHeaders: false,
-  store: new RedisStore({
+};
+
+if (process.env.REDIS_URL) {
+  const redisClient = createClient({
+    url: process.env.REDIS_URL
+  });
+  redisClient.connect().catch(err => console.error("Redis Connection Error:", err));
+  
+  limiterOptions.store = new RedisStore({
     sendCommand: (...args) => redisClient.sendCommand(args),
-  }),
-});
+  });
+}
+
+const limiter = rateLimit(limiterOptions);
 app.use(limiter);
 
 // 2. Xử lý body và cookie
