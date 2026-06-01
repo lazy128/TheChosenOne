@@ -56,7 +56,7 @@ function buildSeatMap(seedBase: number): Movie["seatMap"] {
   };
 }
 
-function buildShowtimes(basePrice: number, seedBase: number): Movie["showtimes"] {
+function buildShowtimes(seedBase: number): Movie["showtimes"] {
   const rand = seeded(seedBase);
   const out: Movie["showtimes"] = {};
   const cinemaIds = ["CGV", "Lotte", "BHD"];
@@ -68,12 +68,10 @@ function buildShowtimes(basePrice: number, seedBase: number): Movie["showtimes"]
         const type = TYPE_ORDER[(i + Math.floor(rand() * 4)) % TYPE_ORDER.length];
         const total = 120;
         const seatsAvailable = Math.max(0, Math.round(total * (0.15 + rand() * 0.8)));
-        const mul = type === "IMAX" ? 1.5 : type === "4DX" ? 1.7 : type === "DOLBY" ? 1.25 : 1;
-
         return {
           time,
           type,
-          price: Math.round(basePrice * mul),
+          price: 75000,
           seatsAvailable,
           totalSeats: total,
         };
@@ -109,7 +107,7 @@ function extractRealShowtimes(detail: LichChieuPhimDetail): Movie["showtimes"] |
           const dateIso = dt.toISOString().slice(0, 10);
           const time = lich.time || `${String(dt.getHours()).padStart(2, "0")}:${String(dt.getMinutes()).padStart(2, "0")}`;
           const type = (lich.type as Showtime["type"] | undefined) || inferType(rapPhim.tenRap);
-          const price = lich.giaVe || lich.price || 0;
+          const price = lich.giaVe || lich.price || 75000;
 
           if (!out[cinemaId][dateIso]) out[cinemaId][dateIso] = [];
 
@@ -136,7 +134,6 @@ function extractRealShowtimes(detail: LichChieuPhimDetail): Movie["showtimes"] |
 export function adaptPhimToMovie(item: Phim, lichChieuData?: LichChieuPhimDetail): Movie {
   const source = item as ExtendedPhim;
   const score = Number(source.imdbScore ?? item.danhGia ?? 0);
-  const basePrice = 10 + Math.max(0, Math.min(10, score));
   const seedBase = Number((source.id ?? item.maPhim) || 1);
 
   const realShowtimes = lichChieuData ? extractRealShowtimes(lichChieuData) : null;

@@ -37,10 +37,10 @@ function seatType(seat: string, taken: Set<string>, vipRows: string[], coupleSet
   return "standard";
 }
 
-function priceFor(base: number, type: SeatType) {
-  // Use the explicit price from backend if possible, instead of fixed multipliers.
-  // We keep this function for fallback UI visuals (like Couple seats), but base should be used as-is.
-  return base;
+function priceFor(type: SeatType) {
+  if (type === "vip") return 90000;
+  if (type === "couple") return 160000;
+  return 75000;
 }
 
 const SeatButton = memo(function SeatButton({
@@ -167,14 +167,14 @@ export function SeatPicker() {
 
   const total = useMemo(() => {
     return state.selectedSeats.reduce((sum, st) => {
+      let apiSeat = undefined;
       if (state.seatData.length > 0) {
-        const found = state.seatData.find((g) => g.tenGhe === st);
-        if (found?.giaVe) return sum + found.giaVe;
+        apiSeat = state.seatData.find((g) => g.tenGhe === st);
       }
-      const t = seatType(st, taken, effectiveVipRows, coupleSet);
-      return sum + priceFor(showtime.price, t);
+      const t = backendSeatType(st, apiSeat, effectiveVipRows, coupleSet) ?? seatType(st, taken, effectiveVipRows, coupleSet);
+      return sum + priceFor(t);
     }, 0);
-  }, [state.selectedSeats, showtime.price, taken, effectiveVipRows, coupleSet, state.seatData]);
+  }, [state.selectedSeats, taken, effectiveVipRows, coupleSet, state.seatData]);
 
   const rowOffset = (r: number) => {
     const center = (rows - 1) / 2;
@@ -194,7 +194,7 @@ export function SeatPicker() {
       <div className="mx-auto max-w-5xl text-center">
         <div className="font-display text-xs tracking-[0.4em] text-accent-blood">/// PICK YOUR SEATS</div>
         <h2 className="mt-2 font-display text-3xl sm:text-4xl">{movie.title}</h2>
-        <p className="mt-1 text-xs text-text-muted">{showtime.type} · {showtime.time} · {format(showtime.price)} base</p>
+        <p className="mt-1 text-xs text-text-muted">{showtime.type} · {showtime.time}</p>
       </div>
 
       <div className="relative mx-auto mt-10 max-w-3xl">
@@ -269,7 +269,7 @@ export function SeatPicker() {
 
       <div className="mx-auto mt-10 flex max-w-3xl flex-wrap justify-center gap-4 text-[11px] text-text-muted">
         <div className="flex items-center gap-2"><span className="h-4 w-4 rounded bg-[#1a1a3a]" /> Standard</div>
-        <div className="flex items-center gap-2"><span className="h-4 w-4 rounded bg-[#241a08] border border-accent-gold/60" /> VIP +50%</div>
+        <div className="flex items-center gap-2"><span className="h-4 w-4 rounded bg-[#241a08] border border-accent-gold/60" /> VIP</div>
         <div className="flex items-center gap-2"><span className="h-4 w-6 rounded bg-[#2a1320] border border-pink-400/60" /> Couple</div>
         <div className="flex items-center gap-2"><span className="h-4 w-4 rounded bg-accent-blood" /> Selected</div>
         <div className="flex items-center gap-2"><span className="h-4 w-4 rounded bg-white/10" /> Taken</div>

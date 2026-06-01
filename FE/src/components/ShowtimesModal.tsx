@@ -379,7 +379,7 @@ export function ShowtimesModal() {
                               >
                                 <div className="font-display text-lg tracking-wider">{s.time}</div>
                                 <div className="mt-0.5 flex items-center justify-between text-[11px]">
-                                  <span className="text-accent-gold">{format(s.price)}</span>
+                                  <span className="text-accent-gold">Từ {format(s.price)}</span>
                                   {soldOut ? (
                                     <span className="font-display tracking-widest text-text-muted line-through">SOLD OUT</span>
                                   ) : fillingFast ? (
@@ -404,7 +404,7 @@ export function ShowtimesModal() {
                   <div className="text-xs text-text-muted">
                     {showtime ? (
                       <span>
-                        Selected: <span className="text-text-primary">{showtime.type} · {showtime.time} · {format(showtime.price)}</span>
+                        Selected: <span className="text-text-primary">{showtime.type} · {showtime.time} · Từ {format(showtime.price)}</span>
                       </span>
                     ) : (
                       "Pick a showtime to continue"
