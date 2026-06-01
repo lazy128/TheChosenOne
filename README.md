@@ -1,101 +1,135 @@
-# 🎬 Cinema Canvas - Hệ Thống Đặt Vé Xem Phim
+<div align="center">
+  <img src="https://raw.githubusercontent.com/lazy128/CINEMAX/main/FE/public/favicon.ico" alt="Cinema Canvas Logo" width="100" height="auto" />
+  <h1>🎬 CINEMAX (Cinema Canvas)</h1>
+  <p><em>Hệ thống đặt vé xem phim trực tuyến hiện đại, mạnh mẽ và toàn diện.</em></p>
 
-Dự án web ứng dụng đặt vé xem phim với đầy đủ tính năng dành cho Khách hàng và Quản trị viên, được phát triển dựa trên stack **React/Vite** (Frontend) và **Express.js + Prisma** (Backend).
+  <!-- Badges -->
+  <p>
+    <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
+    <img src="https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E" alt="Vite" />
+    <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="NodeJS" />
+    <img src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white" alt="ExpressJS" />
+    <img src="https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white" alt="Prisma" />
+    <img src="https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL" />
+    <img src="https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white" alt="Redis" />
+    <img src="https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
+  </p>
+</div>
 
 ---
 
-## 🚀 Hướng Dẫn Cài Đặt & Chạy Dự Án (Getting Started)
+## 📑 Mục Lục
+- [Giới thiệu](#-giới-thiệu)
+- [Tính năng nổi bật](#-tính-năng-nổi-bật)
+- [Hướng dẫn cài đặt](#-hướng-dẫn-cài-đặt)
+  - [Cách 1: Sử dụng Docker (Khuyên dùng)](#cách-1-sử-dụng-docker-khuyên-dùng)
+  - [Cách 2: Cài đặt thủ công](#cách-2-cài-đặt-thủ-công)
+- [Kiểm thử chức năng (Dành cho Giảng Viên)](#-kiểm-thử-chức-năng-dành-cho-giảng-viên)
+- [Kiến trúc hệ thống & Design Patterns](#-kiến-trúc-hệ-thống--design-patterns)
 
-### 1. Khởi chạy Backend (API)
-Mở terminal và trỏ vào thư mục `expressjs`:
+---
+
+## 🌟 Giới thiệu
+
+**Cinema Canvas (CINEMAX)** là một nền tảng Web Application quản lý và đặt vé xem phim được thiết kế theo kiến trúc Microservices & RESTful API. Hệ thống cung cấp trải nghiệm UI/UX mượt mà cho khách hàng đồng thời trang bị một Dashboard mạnh mẽ giúp Quản trị viên dễ dàng vận hành rạp chiếu.
+
+---
+
+## 🚀 Tính năng nổi bật
+
+### 👨‍💼 Dành cho Quản trị viên (Admin)
+- **Quản lý Phim:** Thêm, sửa, xóa, upload Poster phim (Cloudinary).
+- **Quản lý Lịch chiếu:** Sắp xếp lịch chiếu, chọn rạp, cấu hình giá vé.
+- **Quản lý Người dùng:** Phân quyền, kiểm soát danh sách người dùng.
+- **Quản lý Ưu đãi (Offers):** Tạo mã giảm giá động, cấu hình phần trăm giảm, icon, hạn sử dụng.
+- **Quản lý Đặt vé:** Theo dõi luồng doanh thu và lịch sử đặt vé của khách hàng trực tiếp trên hệ thống.
+
+### 🙎‍♂️ Dành cho Khách hàng (User)
+- **Trải nghiệm mua vé:** Quy trình đặt vé đa bước trực quan (Chọn phim ➞ Chọn suất chiếu ➞ Chọn ghế ➞ Áp dụng mã giảm giá ➞ Thanh toán).
+- **Lịch sử đặt vé:** Xem chi tiết thông tin vé, rạp, thời gian và giá tiền trên bảng điều khiển cá nhân.
+- **Bảo mật tối đa:** Đăng nhập, đăng ký sử dụng chuẩn bảo mật JWT. Hỗ trợ Đăng nhập bằng Google (OAuth2.0).
+
+---
+
+## ⚙️ Hướng dẫn cài đặt
+
+### Cách 1: Sử dụng Docker (Khuyên dùng)
+Dự án đã được cấu hình sẵn môi trường containerized hoàn chỉnh bao gồm Node.js, MySQL, Redis, Elasticsearch & Kibana.
+
+1. **Yêu cầu:** Đã cài đặt [Docker Desktop](https://www.docker.com/products/docker-desktop/).
+2. **Khởi chạy hệ thống:**
+   Mở terminal tại thư mục gốc của dự án và chạy:
+   ```bash
+   docker compose up --build -d
+   ```
+3. **Truy cập:**
+   - Client (Frontend): `http://localhost:5173`
+   - Server API: `http://localhost:5000`
+   - Kibana Logs: `http://localhost:5601`
+
+### Cách 2: Cài đặt thủ công (Local Development)
+
+**1. Khởi chạy Backend (API):**
 ```bash
 cd expressjs
 npm install
 npx prisma db push   # Cập nhật Schema xuống Database
 npx prisma generate  # Khởi tạo Prisma Client
-npm run dev          # Chạy server ở chế độ dev
+npm run start        # Chạy API Server ở cổng 5000
 ```
-- Server mặc định sẽ khởi chạy tại: `http://localhost:5000`
-- Tài liệu API (Swagger): `http://localhost:5000/api-docs`
+*(Lưu ý: Bạn cần cấu hình file `.env` với `DATABASE_URL` MySQL của riêng bạn).*
 
-### 2. Khởi chạy Frontend (UI)
-Mở một terminal khác và trỏ vào thư mục `FE`:
+**2. Khởi chạy Frontend (UI):**
 ```bash
 cd FE
 npm install
-npm run dev
+npm run dev          # Chạy Vite Server ở cổng 5173
 ```
-- Ứng dụng Web sẽ khởi chạy tại: `http://localhost:5173`
 
 ---
 
-## 🔑 Hướng Dẫn Thầy Test API & Chức Năng (Admin vs User)
+## 🔑 Kiểm thử chức năng (Dành cho Giảng Viên)
 
-Để kiểm tra cơ chế phân quyền, hệ thống đã chia rạch ròi 2 loại tài khoản:
+Hệ thống được thiết kế với cơ chế phân quyền bảo mật kép (Frontend Router Guard + Backend Middleware). 
 
-### 1. Chế Độ Quản Trị Viên (Admin)
-- **Tài khoản Test:** `admin01` / **Mật khẩu:** `123456`
-- **Đăng nhập** bằng tài khoản có `maLoaiNguoiDung` là `"QuanTri"`.
-- Trên giao diện Frontend, bạn sẽ nhận biết tài khoản Admin thông qua **Icon Hình Cái Khiên (Shield)** góc trên bên phải thay vì hình người bình thường.
-- Thanh Menu sẽ xuất hiện thêm mục **ADMIN**, cho phép truy cập vào Trang Quản Trị.
-- **Test API:** Admin có quyền gọi các API nhạy cảm (được bảo vệ bởi Middleware `restrictTo("QuanTri")`) như:
-  - Thêm, Sửa, Xóa Phim (`POST /api/QuanLyPhim/CapNhatPhimUpload`)
-  - Tạo Lịch Chiếu (`POST /api/QuanLyDatVe/TaoLichChieu`)
-  - Quản trị Người Dùng.
+| Loại Tài Khoản | Phân Quyền (`maLoaiNguoiDung`) | Chức Năng Cốt Lõi | Tài Khoản Test |
+| :--- | :--- | :--- | :--- |
+| **Admin** | `QuanTri` | Có quyền truy cập Admin Dashboard, thao tác CRUD Phim, Lịch chiếu, Ưu đãi, Người dùng. | **Tài khoản:** `admin01`<br>**Mật khẩu:** `123456` |
+| **Khách Hàng** | `KhachHang` | Chỉ được phép xem phim, đặt vé, áp dụng mã ưu đãi và xem lịch sử cá nhân. | **Tài khoản:** `user01`<br>**Mật khẩu:** `123456` |
 
-### 2. Chế Độ Khách Hàng (User)
-- **Tài khoản Test:** `user01` / **Mật khẩu:** `123456` (Hoặc Thầy có thể tự Đăng Ký tài khoản mới).
-- **Đăng nhập** bằng tài khoản có `maLoaiNguoiDung` là `"KhachHang"`.
-- Trình duyệt sẽ hiển thị icon người dùng mặc định. Nút **ADMIN** trên Navbar sẽ bị ẩn.
-- **Bảo mật kép:** Nếu User cố tình nhập URL `/admin`, Frontend sẽ block và hiển thị màn hình **ACCESS DENIED**. Nếu dùng Postman cố tình gọi API Admin, Backend sẽ trả về lỗi `403 Forbidden`.
-- **Test API:** User chỉ có quyền thao tác các API dành cho khách như:
-  - Đặt vé (`POST /api/QuanLyDatVe/DatVe`)
-  - Xem thông tin tài khoản, lịch sử đặt vé.
-  - Các API Public (Danh sách phim, cụm rạp) không yêu cầu Token.
+*💡 **Lưu ý:** Nếu User cố tình truy cập URL `/admin`, UI sẽ tự động chặn và hiển thị trang `ACCESS DENIED`. Nếu cố tình dùng Postman gọi API Admin, Backend sẽ từ chối và trả về HTTP Status `403 Forbidden`.*
 
 ---
 
-## 🔄 Luồng Thực Thi Hoạt Động (Execution Flow)
+## 🏗️ Kiến trúc hệ thống & Design Patterns
 
-Hệ thống tuân thủ theo luồng bảo mật tiêu chuẩn sử dụng **JSON Web Token (JWT)**.
+Dự án được xây dựng dựa trên nguyên lý **SOLID** và áp dụng chặt chẽ các Design Pattern công nghiệp:
 
-1. **Luồng Xác Thực (Authentication Flow):**
-   - Người dùng gửi thông tin Đăng nhập.
-   - Backend xác thực thành công sẽ sinh ra `JWT Token` (lưu trữ Payload gồm `id`, `maLoaiNguoiDung`).
-   - Frontend lưu Token vào `localStorage` và cập nhật Global State (Zustand/Context).
-
-2. **Luồng Đặt Vé (Booking Flow):**
-   - User xem thông tin phim -> Click suất chiếu -> Chọn ghế.
-   - Khi bấm thanh toán, Frontend gửi Request kèm **JWT Token** qua Header: `Authorization: Bearer <token>`.
-   - Backend chạy qua `protect` middleware để Verify Token -> Lưu thông tin vé xuống Database bằng **Transaction** -> Trả về kết quả thành công.
-
-3. **Luồng Quản Trị (Admin Flow - Checkplan Update Phim):**
-   - Admin upload hình ảnh + Form Cập Nhật Phim.
-   - Frontend dùng `FormData` để đóng gói dữ liệu dạng Multipart gửi lên Server.
-   - Tại Backend, Request đi qua chuỗi Pipeline: 
-     `protect` (Check Đăng nhập) -> `restrictTo("QuanTri")` (Check Quyền) -> `uploadDiskStorage` (Lưu file vật lý) -> `Controller` -> `Service` (Cập nhật DB qua Prisma) -> Trả về Client.
-
----
-
-## 🏗️ Kiến Trúc & Design Pattern Áp Dụng
-
-Dự án áp dụng chặt chẽ các Design Pattern để đảm bảo tính dễ bảo trì, mở rộng và tuân thủ nguyên lý SOLID.
-
-### 1. Layered Architecture (MVC Backend)
-Backend được chia thành các lớp chuyên biệt:
-- **Router:** Cầu nối điều hướng API đến đúng Controller.
-- **Controller:** Tiếp nhận Request, điều phối và trả về Response JSON.
-- **Service:** Đảm nhận toàn bộ **Business Logic** (Nghiệp vụ cốt lõi). Không phụ thuộc vào Express, dễ dàng viết Unit Test.
-- **Repository (Prisma):** Giao tiếp trực tiếp với Cơ sở dữ liệu.
+### 1. Kiến trúc phân tầng (Layered Architecture - Backend)
+Mô hình MVC truyền thống được tùy biến để tách bạch hoàn toàn Business Logic khỏi Controller:
+- **Router:** Cầu nối điều hướng API đến đúng Controller (Sử dụng Express Router).
+- **Controller:** Đọc Request, xác thực tham số, gọi tầng Service và định dạng Response trả về (JSON).
+- **Service:** Tầng xử lý **Nghiệp vụ cốt lõi**. Việc tính toán, kiểm tra logic phức tạp được cô lập tại đây giúp code dễ bảo trì và dễ dàng viết Unit Test độc lập.
+- **Repository (Prisma ORM):** Lớp giao tiếp trực tiếp với cơ sở dữ liệu MySQL một cách Type-Safe.
 
 ### 2. Singleton Pattern
-- Áp dụng trong việc khởi tạo Prisma Client (`connect.prisma.js`). Pattern này đảm bảo toàn bộ ứng dụng Express chỉ sinh ra và sử dụng **duy nhất một connection pool** tới Database, ngăn chặn triệt để tình trạng Memory Leak do mở quá nhiều kết nối.
+- Áp dụng trong việc khởi tạo Database Connection (`connect.prisma.js`). 
+- Design pattern này đảm bảo toàn bộ ứng dụng Node.js chỉ sinh ra và sử dụng **duy nhất một Connection Pool** tới Database, ngăn chặn triệt để tình trạng rò rỉ bộ nhớ (Memory Leak) và lỗi hết cổng kết nối (Too many connections).
 
 ### 3. Middleware / Chain of Responsibility Pattern
-- Mọi luồng API yêu cầu bảo mật đều phải đi qua một chuỗi các trạm kiểm duyệt (Middlewares). Mỗi middleware xử lý 1 nhiệm vụ duy nhất và quyết định có cho Request đi tiếp (`next()`) hay chặn lại.
+- Mọi luồng API yêu cầu tính bảo mật cao đều phải đi qua một chuỗi các "trạm kiểm duyệt" (Middlewares).
+- **Ví dụ Pipeline:** `checkAuth` (Xác thực JWT Token hợp lệ) ➞ `restrictTo("QuanTri")` (Xác thực đúng Quyền) ➞ `validateData` (Xác thực Payload) ➞ `Controller`.
+- Mỗi middleware chịu trách nhiệm đúng 1 nhiệm vụ cốt lõi và quyết định xem có cho phép Request đi tiếp (`next()`) hay trả thẳng lỗi về người dùng.
 
 ### 4. Adapter Pattern (Frontend)
-- Ở Frontend có file `movie-adapter.ts`. Đây là một Adapter hoàn hảo để làm cầu nối giữa cấu trúc dữ liệu thô từ Backend (ví dụ `ten_phim`, `hinh_anh`) và cấu trúc chuẩn mực mà UI Component của React đang cần (`title`, `poster`). Nó giúp UI tái sử dụng dễ dàng và không bị phá vỡ nếu Backend thay đổi cấu trúc bảng.
+- Ở lớp UI, các file Adapter (như `movie-adapter.ts`) đóng vai trò làm phiên dịch viên chuyển đổi cấu trúc dữ liệu thô từ Backend (`ten_phim`, `hinh_anh`) thành cấu trúc chuẩn mực, đồng nhất cho UI Component (`title`, `poster`).
+- Nhờ Pattern này, giao diện người dùng sẽ không bị sụp đổ (break) dù Backend có thay đổi toàn bộ cấu trúc bảng Database. Nó tạo ra một lớp chống dính cực kỳ hiệu quả giữa Server và Client.
 
-### 5. Context / Observer Pattern (Frontend)
-- Sử dụng React Context API (`AuthContext`, `LocaleContext`) để quản lý State toàn cục. Các Components đóng vai trò như các Observers (người theo dõi). Bất cứ khi nào AuthState (Trạng thái đăng nhập) thay đổi, tất cả các UI Component đang lắng nghe sẽ tự động re-render và cập nhật giao diện ngay lập tức mà không cần F5.
+### 5. Observer Pattern (State Management)
+- Hệ thống Frontend sử dụng **Context API** kết hợp **React Query** làm kho lưu trữ State toàn cục.
+- Các UI Components đóng vai trò như các Observers (người theo dõi). Bất cứ khi nào trạng thái (ví dụ: Auth State, Shopping Cart) bị thay đổi, tất cả các Observers đang "lắng nghe" sẽ được thông báo để tự động re-render và cập nhật giao diện lập tức mà không cần phải tải lại trang.
+
+---
+<div align="center">
+  <p>Được thiết kế và phát triển với ❤️</p>
+</div>
